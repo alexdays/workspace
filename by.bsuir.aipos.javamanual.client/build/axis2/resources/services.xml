@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.3  Built on : Aug 10, 2007 (04:45:47 LKT) --><serviceGroup>
+    <service name="Service">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="by.bsuir.aipos.javamanual.service.ServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">by.bsuir.aipos.javamanual.service.ServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="eraseConcept" mep="http://www.w3.org/ns/wsdl/in-out">
+            <actionMapping>urn:eraseConcept</actionMapping>
+            <outputActionMapping>urn:eraseConceptResponse</outputActionMapping>
+            <faultActionMapping faultName="ServiceIOException">urn:eraseConceptServiceIOException</faultActionMapping>
+            <faultActionMapping faultName="ServiceSAXException">urn:eraseConceptServiceSAXException</faultActionMapping>
+            <faultActionMapping faultName="ServiceTransformerException">urn:eraseConceptServiceTransformerException</faultActionMapping>
+            <faultActionMapping faultName="ServiceParserConfigurationException">urn:eraseConceptServiceParserConfigurationException</faultActionMapping>
+        </operation>
+        <operation name="addConcept" mep="http://www.w3.org/ns/wsdl/in-out">
+            <actionMapping>urn:addConcept</actionMapping>
+            <outputActionMapping>urn:addConceptResponse</outputActionMapping>
+            <faultActionMapping faultName="ServiceIOException">urn:addConceptServiceIOException</faultActionMapping>
+            <faultActionMapping faultName="ServiceSAXException">urn:addConceptServiceSAXException</faultActionMapping>
+            <faultActionMapping faultName="ServiceTransformerException">urn:addConceptServiceTransformerException</faultActionMapping>
+            <faultActionMapping faultName="ServiceParserConfigurationException">urn:addConceptServiceParserConfigurationException</faultActionMapping>
+        </operation>
+        <operation name="getAllConcepts" mep="http://www.w3.org/ns/wsdl/in-out">
+            <actionMapping>urn:getAllConcepts</actionMapping>
+            <outputActionMapping>urn:getAllConceptsResponse</outputActionMapping>
+            <faultActionMapping faultName="ServiceIOException">urn:getAllConceptsServiceIOException</faultActionMapping>
+            <faultActionMapping faultName="ServiceSAXException">urn:getAllConceptsServiceSAXException</faultActionMapping>
+            <faultActionMapping faultName="ServiceParserConfigurationException">urn:getAllConceptsServiceParserConfigurationException</faultActionMapping>
+        </operation>
+        <operation name="getConceptContent" mep="http://www.w3.org/ns/wsdl/in-out">
+            <actionMapping>urn:getConceptContent</actionMapping>
+            <outputActionMapping>urn:getConceptContentResponse</outputActionMapping>
+            <faultActionMapping faultName="ServiceIOException">urn:getConceptContentServiceIOException</faultActionMapping>
+            <faultActionMapping faultName="ServiceSAXException">urn:getConceptContentServiceSAXException</faultActionMapping>
+            <faultActionMapping faultName="ServiceParserConfigurationException">urn:getConceptContentServiceParserConfigurationException</faultActionMapping>
+        </operation>
+        <operation name="changeConcept" mep="http://www.w3.org/ns/wsdl/in-out">
+            <actionMapping>urn:changeConcept</actionMapping>
+            <outputActionMapping>urn:changeConceptResponse</outputActionMapping>
+            <faultActionMapping faultName="ServiceIOException">urn:changeConceptServiceIOException</faultActionMapping>
+            <faultActionMapping faultName="ServiceSAXException">urn:changeConceptServiceSAXException</faultActionMapping>
+            <faultActionMapping faultName="ServiceTransformerException">urn:changeConceptServiceTransformerException</faultActionMapping>
+            <faultActionMapping faultName="ServiceParserConfigurationException">urn:changeConceptServiceParserConfigurationException</faultActionMapping>
+        </operation>
+    </service>
+</serviceGroup>

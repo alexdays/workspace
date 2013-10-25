@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://service.javamanual.aipos.bsuir.by" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://service.javamanual.aipos.bsuir.by" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:ax23="http://io.java/xsd" xmlns:ax21="http://sax.xml.org/xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+<wsdl:documentation>Service</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://service.javamanual.aipos.bsuir.by" xmlns:ax22="http://sax.xml.org/xsd" xmlns:ax24="http://io.java/xsd">
+            <xs:import namespace="http://sax.xml.org/xsd"/>
+            <xs:import namespace="http://io.java/xsd"/>
+            <xs:element name="ServiceParserConfigurationException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="ParserConfigurationException" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ServiceSAXException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="SAXException" nillable="true" type="ax21:SAXException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ServiceIOException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="IOException" nillable="true" type="ax23:IOException"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ServiceTransformerException">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="TransformerException" nillable="true" type="xs:anyType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="addConcept">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="content" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="eraseConcept">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="conceptName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getConceptContent">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="conceptName" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getConceptContentResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="changeConcept">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="conceptName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="content" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllConcepts">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getAllConceptsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://io.java/xsd">
+            <xs:complexType name="IOException">
+                <xs:sequence/>
+            </xs:complexType>
+        </xs:schema>
+    <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://sax.xml.org/xsd">
+            <xs:complexType name="SAXException">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="cause" nillable="true" type="xs:anyType"/>
+                    <xs:element minOccurs="0" name="exception" nillable="true"/>
+                    <xs:element minOccurs="0" name="message" nillable="true" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addConceptRequest">
+    <wsdl:part name="parameters" element="ns:addConcept">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceSAXException">
+    <wsdl:part name="parameters" element="ns:ServiceSAXException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="eraseConceptRequest">
+    <wsdl:part name="parameters" element="ns:eraseConcept">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptContentResponse">
+    <wsdl:part name="parameters" element="ns:getConceptContentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceIOException">
+    <wsdl:part name="parameters" element="ns:ServiceIOException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceParserConfigurationException">
+    <wsdl:part name="parameters" element="ns:ServiceParserConfigurationException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptContentRequest">
+    <wsdl:part name="parameters" element="ns:getConceptContent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsRequest">
+    <wsdl:part name="parameters" element="ns:getAllConcepts">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsResponse">
+    <wsdl:part name="parameters" element="ns:getAllConceptsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeConceptRequest">
+    <wsdl:part name="parameters" element="ns:changeConcept">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceTransformerException">
+    <wsdl:part name="parameters" element="ns:ServiceTransformerException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ServicePortType">
+    <wsdl:operation name="eraseConcept">
+      <wsdl:input message="ns:eraseConceptRequest" wsaw:Action="urn:eraseConcept">
+    </wsdl:input>
+      <wsdl:output message="ns:null" wsaw:Action="urn:eraseConceptResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceIOException" message="ns:ServiceIOException" wsaw:Action="urn:eraseConceptServiceIOException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException" message="ns:ServiceSAXException" wsaw:Action="urn:eraseConceptServiceSAXException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException" message="ns:ServiceTransformerException" wsaw:Action="urn:eraseConceptServiceTransformerException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException" message="ns:ServiceParserConfigurationException" wsaw:Action="urn:eraseConceptServiceParserConfigurationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addConcept">
+      <wsdl:input message="ns:addConceptRequest" wsaw:Action="urn:addConcept">
+    </wsdl:input>
+      <wsdl:output message="ns:null" wsaw:Action="urn:addConceptResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceIOException" message="ns:ServiceIOException" wsaw:Action="urn:addConceptServiceIOException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException" message="ns:ServiceSAXException" wsaw:Action="urn:addConceptServiceSAXException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException" message="ns:ServiceTransformerException" wsaw:Action="urn:addConceptServiceTransformerException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException" message="ns:ServiceParserConfigurationException" wsaw:Action="urn:addConceptServiceParserConfigurationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConcepts">
+      <wsdl:input message="ns:getAllConceptsRequest" wsaw:Action="urn:getAllConcepts">
+    </wsdl:input>
+      <wsdl:output message="ns:getAllConceptsResponse" wsaw:Action="urn:getAllConceptsResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceIOException" message="ns:ServiceIOException" wsaw:Action="urn:getAllConceptsServiceIOException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException" message="ns:ServiceSAXException" wsaw:Action="urn:getAllConceptsServiceSAXException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException" message="ns:ServiceParserConfigurationException" wsaw:Action="urn:getAllConceptsServiceParserConfigurationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptContent">
+      <wsdl:input message="ns:getConceptContentRequest" wsaw:Action="urn:getConceptContent">
+    </wsdl:input>
+      <wsdl:output message="ns:getConceptContentResponse" wsaw:Action="urn:getConceptContentResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceIOException" message="ns:ServiceIOException" wsaw:Action="urn:getConceptContentServiceIOException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException" message="ns:ServiceSAXException" wsaw:Action="urn:getConceptContentServiceSAXException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException" message="ns:ServiceParserConfigurationException" wsaw:Action="urn:getConceptContentServiceParserConfigurationException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="changeConcept">
+      <wsdl:input message="ns:changeConceptRequest" wsaw:Action="urn:changeConcept">
+    </wsdl:input>
+      <wsdl:output message="ns:null" wsaw:Action="urn:changeConceptResponse">
+    </wsdl:output>
+      <wsdl:fault name="ServiceIOException" message="ns:ServiceIOException" wsaw:Action="urn:changeConceptServiceIOException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException" message="ns:ServiceSAXException" wsaw:Action="urn:changeConceptServiceSAXException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException" message="ns:ServiceTransformerException" wsaw:Action="urn:changeConceptServiceTransformerException">
+    </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException" message="ns:ServiceParserConfigurationException" wsaw:Action="urn:changeConceptServiceParserConfigurationException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceHttpBinding" type="ns:ServicePortType">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="eraseConcept">
+      <http:operation location="eraseConcept"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addConcept">
+      <http:operation location="addConcept"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConcepts">
+      <http:operation location="getAllConcepts"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptContent">
+      <http:operation location="getConceptContent"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeConcept">
+      <http:operation location="changeConcept"/>
+      <wsdl:input>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="parameters" type="application/xml"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap11Binding" type="ns:ServicePortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="eraseConcept">
+      <soap:operation soapAction="urn:eraseConcept" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException">
+        <soap:fault name="ServiceTransformerException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addConcept">
+      <soap:operation soapAction="urn:addConcept" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException">
+        <soap:fault name="ServiceTransformerException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConcepts">
+      <soap:operation soapAction="urn:getAllConcepts" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptContent">
+      <soap:operation soapAction="urn:getConceptContent" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="changeConcept">
+      <soap:operation soapAction="urn:changeConcept" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException">
+        <soap:fault name="ServiceTransformerException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12Binding" type="ns:ServicePortType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="eraseConcept">
+      <soap12:operation soapAction="urn:eraseConcept" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap12:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap12:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException">
+        <soap12:fault name="ServiceTransformerException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap12:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="addConcept">
+      <soap12:operation soapAction="urn:addConcept" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap12:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap12:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException">
+        <soap12:fault name="ServiceTransformerException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap12:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConcepts">
+      <soap12:operation soapAction="urn:getAllConcepts" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap12:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap12:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap12:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptContent">
+      <soap12:operation soapAction="urn:getConceptContent" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap12:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap12:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap12:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="changeConcept">
+      <soap12:operation soapAction="urn:changeConcept" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ServiceIOException">
+        <soap12:fault name="ServiceIOException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceSAXException">
+        <soap12:fault name="ServiceSAXException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceTransformerException">
+        <soap12:fault name="ServiceTransformerException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="ServiceParserConfigurationException">
+        <soap12:fault name="ServiceParserConfigurationException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceHttpEndpoint" binding="ns:ServiceHttpBinding">
+      <http:address location="http://localhost:8084/axis2/services/Service.ServiceHttpEndpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpSoap12Endpoint" binding="ns:ServiceSoap12Binding">
+      <soap12:address location="http://localhost:8084/axis2/services/Service.ServiceHttpSoap12Endpoint/"/>
+    </wsdl:port>
+    <wsdl:port name="ServiceHttpSoap11Endpoint" binding="ns:ServiceSoap11Binding">
+      <soap:address location="http://localhost:8084/axis2/services/Service.ServiceHttpSoap11Endpoint/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
