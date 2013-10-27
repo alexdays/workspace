@@ -1,0 +1,101 @@
+// $ANTLR 3.5 C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g 2013-03-03 00:53:28
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+@SuppressWarnings("all")
+public class ConsyanParser extends Parser {
+	public static final String[] tokenNames = new String[] {
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ID", "'('", "')'", "'function'"
+	};
+	public static final int EOF=-1;
+	public static final int T__5=5;
+	public static final int T__6=6;
+	public static final int T__7=7;
+	public static final int ID=4;
+
+	// delegates
+	public Parser[] getDelegates() {
+		return new Parser[] {};
+	}
+
+	// delegators
+
+
+	public ConsyanParser(TokenStream input) {
+		this(input, new RecognizerSharedState());
+	}
+	public ConsyanParser(TokenStream input, RecognizerSharedState state) {
+		super(input, state);
+	}
+
+	@Override public String[] getTokenNames() { return ConsyanParser.tokenNames; }
+	@Override public String getGrammarFileName() { return "C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g"; }
+
+
+
+	// $ANTLR start "func"
+	// C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g:7:1: func : 'function' ID '(' ( . )* ')' ;
+	public final void func() throws  {
+		Token ID1=null;
+
+		try {
+			// C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g:7:6: ( 'function' ID '(' ( . )* ')' )
+			// C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g:7:8: 'function' ID '(' ( . )* ')'
+			{
+			match(input,7,FOLLOW_7_in_func52); 
+			ID1=(Token)match(input,ID,FOLLOW_ID_in_func54); 
+			match(input,5,FOLLOW_5_in_func56); 
+			// C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g:7:26: ( . )*
+			loop1:
+			while (true) {
+				int alt1=2;
+				int LA1_0 = input.LA(1);
+				if ( (LA1_0==6) ) {
+					alt1=2;
+				}
+				else if ( ((LA1_0 >= ID && LA1_0 <= 5)||LA1_0==7) ) {
+					alt1=1;
+				}
+
+				switch (alt1) {
+				case 1 :
+					// C:\\Documents and Settings\\Admin\\Мои документы\\Consyan.g:7:26: .
+					{
+					matchAny(input); 
+					}
+					break;
+
+				default :
+					break loop1;
+				}
+			}
+
+			match(input,6,FOLLOW_6_in_func61); 
+
+					System.out.print(ID1.ID);
+				
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "func"
+
+	// Delegated rules
+
+
+
+	public static final BitSet FOLLOW_7_in_func52 = new BitSet(new long[]{0x0000000000000010L});
+	public static final BitSet FOLLOW_ID_in_func54 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_5_in_func56 = new BitSet(new long[]{0x00000000000000F0L});
+	public static final BitSet FOLLOW_6_in_func61 = new BitSet(new long[]{0x0000000000000002L});
+}

@@ -1,0 +1,7 @@
+grammar pagecore;
+
+options {
+  language = Java;
+}
+
+rule: ;

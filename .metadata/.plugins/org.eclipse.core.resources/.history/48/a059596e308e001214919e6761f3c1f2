@@ -1,0 +1,142 @@
+package notepad.model;
+
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+
+import by.bsuir.ppvis.utls.KeyChar;
+import by.bsuir.ppvis.utls.KeyChars;
+
+public class Document {
+	private String model;
+	private FontMetrics fontMetrics;
+	private Font currentFont;
+	private int begSelectPos = -1;
+	private int endSelectPos = -1;
+	
+	public Document(){
+		model = new String();
+		currentFont = new Font("Arial", Font.PLAIN, 14);
+	}
+	public void setFont(Font font){
+		currentFont = font;
+	}
+	
+	public void setFont(String fontFamily, int style, int font_size){
+		Font font = new Font(fontFamily, style, font_size); 
+		currentFont = font;
+	}
+	
+	public void setFontMetrics(FontMetrics fm){
+		fontMetrics = fm;
+	}
+	
+	public FontMetrics getFontMetrics(){
+		return fontMetrics;
+	}
+	
+	public String getModel(){
+		return model;
+	}
+	
+	public void setModel(String model){
+		this.model = model;
+	}
+	
+	public void append(char c){
+		model+=c;
+	}
+	
+	public char getCharAt(int index){
+		return model.charAt(index);
+	}
+	
+	public int getLength(){
+		return model.length();
+	}
+	
+	public void eraseLastChar(){
+		if(model.length()>1) model = model.substring(0, model.length()-2);
+	}
+	
+	public String cutSubString(){
+		int begIndex = 0, endIndex = 0;
+		if(begSelectPos>endSelectPos){
+			begIndex = endSelectPos;
+			endIndex = begSelectPos;
+		} else if(endSelectPos>begSelectPos) {
+			begIndex = begSelectPos;
+			endIndex = endSelectPos;		
+		}
+		String selectedText = model.substring(begIndex, endIndex+1);
+		String textToBegPos = model.substring(0, begIndex);
+		String textAfterEndPos = model.substring(endIndex+1);
+		model = textToBegPos+textAfterEndPos;
+		
+		return selectedText;
+	}
+	
+	public void erasePrevChar(int curCarretPos){
+		if(curCarretPos==model.length()-1){
+			eraseLastChar();
+		} else if(curCarretPos>0){
+			String beg = model.substring(0, curCarretPos-1);
+		    String end = model.substring(curCarretPos, model.length());
+		    model = beg + end;
+		}
+	}
+	
+	public void insert(int pos, String str){
+		if(pos == 0) {
+			model = str+model;
+		} else if(pos==model.length()-1){
+			model += str;
+		} else {
+			String beg = model.substring(0, pos);
+		    String end = model.substring(pos, model.length());
+		    model = beg + str + end;
+		}
+	}
+	
+	public int getCharWidth(char c){
+		return fontMetrics.charWidth(c);
+	}	
+	
+	public int getLineHeight(){
+		return fontMetrics.getAscent()+fontMetrics.getDescent();
+	}
+	
+	public int getLineCount(){
+		int i = 0, lineCount = 1;
+		while(i<model.length()){
+			if(model.charAt(i)==KeyChar.NEWLINE) ++lineCount;
+			++i;
+		}
+		return lineCount;
+	}
+	
+	public void setBegSelectPos(int pos){
+		begSelectPos = pos;
+	}
+	
+	public void setEndSelectPos(int pos){
+		endSelectPos = pos;
+	}
+	
+	public int getBegSelectPos(){
+		return begSelectPos;
+	}
+	
+	public int getEndSelectPos(){
+		return endSelectPos;
+	}
+	
+	public String getSelectedText(){
+		if(begSelectPos>endSelectPos){
+			return model.substring(endSelectPos, begSelectPos);			
+		} else if(endSelectPos>begSelectPos) {
+			return model.substring(begSelectPos, endSelectPos);			
+		}
+		return null;
+	}
+}

@@ -1,0 +1,13 @@
+grammar JParser;
+
+options {
+  language = Java;
+}
+
+page
+	: 	head_block
+		style_block
+		content_block
+	;
+
+rule: ;

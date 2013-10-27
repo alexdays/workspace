@@ -1,0 +1,17 @@
+package by.bsuir.ppvis.utls;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import javax.swing.JMenu;
+import javax.swing.JButton;
+import javax.swing.JMenuItem;
+
+public class CreateTools {
+	public static JButton createMenu(ChildMenus item){
+		ResourceBundle bundle = ResourceBundle.getBundle("enbase", Locale.getDefault());
+		JButton btn = new JButton(bundle.getString(item.getLabel()));
+		
+		return btn;
+	}
+}

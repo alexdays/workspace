@@ -1,0 +1,94 @@
+package notepad.controller;
+
+import notepad.view.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+
+import javax.swing.JFileChooser;
+
+public class Controller {
+	public class NewEvent implements ActionListener {
+		private TextView textView;
+		
+		public NewEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			textView.getGraphics().clearRect(0, 0, 400, 400);
+		}
+	}
+	
+	public class OpenEvent implements ActionListener {
+		private TextView textView;
+		
+		public OpenEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			JFileChooser dialog = new JFileChooser();
+			if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION){
+				File file = dialog.getSelectedFile();
+				String fileName = file.getAbsolutePath();
+				
+				try {
+					BufferedReader buf = new BufferedReader(new FileReader(fileName));
+					String fileContent = "", s = "";
+					while((s = buf.readLine())==null){
+						fileContent+=s;
+					}
+					buf.close();
+					textView.getDocument().setModel(fileContent);
+					textView.repaint();
+					
+				} catch (FileNotFoundException e) {
+					
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public class SaveEvent implements ActionListener {
+		private TextView textView;
+		
+		public SaveEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			JFileChooser dialog = new JFileChooser();
+			if(dialog.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
+				File file = dialog.getSelectedFile();
+								
+				try {
+					FileWriter writer = new FileWriter(file);
+					writer.write(textView.getDocument().getModel());
+					writer.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public class ExitEvent implements ActionListener {
+		private MainFrame frame;
+		
+		public ExitEvent(MainFrame tv){
+			frame = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			frame.dispose();
+		}
+	}
+	
+}

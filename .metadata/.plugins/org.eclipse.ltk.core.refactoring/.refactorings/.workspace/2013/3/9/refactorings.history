@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;by.bsuir.course2.sem2.texteditor&apos;" deleteContents="false" description="Delete resource &apos;by.bsuir.course2.sem2.texteditor&apos;" element1="/by.bsuir.course2.sem2.texteditor" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1362145744734"/>&#x0A;<refactoring comment="Delete resource &apos;by.bsuir.ostl&apos;" deleteContents="false" description="Delete resource &apos;by.bsuir.ostl&apos;" element1="/by.bsuir.ostl" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1362146955046"/>
+</session>

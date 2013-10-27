@@ -1,0 +1,15 @@
+package by.bsuir.ppvis.utls;
+
+public enum ChildMenus {
+	NEW("new"), OPEN("open"), SAVE("save"),
+	SAVEAS("saveas"), EXIT("exit"), COPY("copy"),
+	CUT("cut"), PASTE("paste");
+	private String label;
+	private ImageIcon icon;
+	private ChildMenus(String label){
+		this.label = label;
+	}
+	public String getLabel(){
+		return label;
+	}
+}

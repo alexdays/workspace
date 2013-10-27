@@ -1,0 +1,226 @@
+package notepad.view;
+
+import java.awt.Color;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.JPanel;
+import notepad.model.Document;
+
+public class TextView extends JPanel {
+	private Document doc;
+	private Carret carret;
+	private boolean ShiftIsDown = false;
+	
+	public TextView(){
+		doc = new Document();
+		carret = new Carret(doc);
+		addKeyListener(new KeyListen());
+		addMouseListener(new MyMouseAdapter());
+		addMouseMotionListener(new MyMouseMotion());
+		setFocusable(true);
+	}
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		carret.setFontMetrics(g.getFontMetrics());
+		doc.setFontMetrics(g.getFontMetrics());
+		carret.setLine(1);
+		redrawArea(g);
+	}
+	
+	private class KeyListen implements KeyListener {
+		public void keyPressed(KeyEvent event){
+			if (event.isShiftDown() && !ShiftIsDown) {
+					ShiftIsDown = true;
+					doc.setBegSelectPos(carret.getPos());
+			    }
+
+			    switch (event.getKeyCode()) {
+				    case KeyEvent.VK_ENTER: {
+						EnterAction();
+						break;
+				    }
+				    case KeyEvent.VK_BACK_SPACE: {
+						BackspaceAction();
+						break;
+				    }
+				    case KeyEvent.VK_TAB: {
+						doc.append('\t');
+						break;
+				    }
+				    case KeyEvent.VK_LEFT: {
+						if (carret.getPos() - 1 >= 0)
+						    carret.dec();
+						checkSelection();
+					break;
+				    }
+				    case KeyEvent.VK_RIGHT: {
+						if (carret.getPos() + 1 <= doc.getModel().length())
+							carret.inc();
+						checkSelection();
+						break;
+				    }
+				    case KeyEvent.VK_UP: {
+	
+						if (carret.getLineNumber() > 1) {
+						    carret.moveUp();
+						}
+						checkSelection();
+						break;
+				    }
+	
+				    case KeyEvent.VK_DOWN: {
+				    	
+						if (carret.getLineNumber() < doc.getLineCount()) {
+						    carret.moveDown();
+						}
+						checkSelection();
+						break;
+				    }
+				    case KeyEvent.VK_SHIFT: {
+				    	break;
+				    }
+				    case KeyEvent.VK_CONTROL: {
+				    	break;
+				    }
+				    case KeyEvent.VK_ALT: {
+				    	break;
+				    }
+				    case KeyEvent.VK_CAPS_LOCK: {
+				    	break;
+				    }
+				    default: {
+				    	checkSelection();
+				    	DefaultAction(event);
+				    }
+			    }
+			    repaint();
+		}
+		
+		public void keyReleased(KeyEvent event){
+			
+		}
+		
+		public void keyTyped(KeyEvent event){
+			
+		}
+	}
+	
+	public void EnterAction(){
+		//++count;
+		ShiftIsDown = false;
+		doc.insert(carret.getPos(), "\n");
+		carret.inc();
+	}
+	
+	public void BackspaceAction(){
+		ShiftIsDown = false;
+		doc.erasePrevChar(carret.getPos());
+		carret.dec();
+	}
+	
+	public void DefaultAction(KeyEvent e){
+		ShiftIsDown = false;
+		doc.insert(carret.getPos(), String.valueOf(e.getKeyChar()));
+		//++count;
+		carret.inc();
+
+	}
+	
+	private void checkSelection(){
+		if(ShiftIsDown){
+			doc.setEndSelectPos(carret.getPos());
+		} else {
+			doc.setBegSelectPos(-1);
+			doc.setEndSelectPos(-1);
+		}
+	}
+	
+	private void redrawArea(Graphics g){
+		int i = 0;
+		int curX = 0, curY = 0;
+		char symbol[] = new char[1];
+		int line = 1;
+		
+		while (i < doc.getLength()) {
+		    symbol[0] = doc.getCharAt(i);
+		    
+		    switch (doc.getCharAt(i)) {
+			    case '\n': {
+					++line;
+					carret.incLineNumber();
+					curX = 0;
+					//carret.setY((line - 1) * line_height + 5);
+					break;
+			    }
+			    case '\t': {
+					int step = 4 * doc.getCharWidth(' ') + 4;
+					curX += step;
+					break;
+			    }
+			    default: {
+					int step = doc.getCharWidth(symbol[0]) + 1;
+					
+					defaultDrawAction(g, curX, line, step, i);
+					
+					g.drawChars(symbol, 0, 1, curX, line * (doc.getLineHeight()));
+					curX += step;
+					carret.setXPos(curX);
+					carret.setYPos((line - 1) * doc.getLineHeight() + 5);
+					
+			    }
+		    }
+			++i;
+			
+			if (i == carret.getPos()) {
+			  	g.drawLine(carret.getXPos(), carret.getYPos(), carret.getXPos(),
+			   			carret.getYPos() - 14);
+			}
+			
+			
+		}
+		
+	}
+	
+	private void defaultDrawAction(Graphics g, int curX, int line, int step, int i){
+		if (!(doc.getBegSelectPos() == -1 || doc.getEndSelectPos() == -1)) {
+		    if (doc.getBegSelectPos() > doc.getEndSelectPos()) {
+			if (i >= doc.getEndSelectPos() && i <= doc.getBegSelectPos())
+			    drawSelection(g, curX, line, step);
+		    } else if (i <= doc.getEndSelectPos() && i >= doc.getBegSelectPos())
+		    	drawSelection(g, curX, line, step);
+		}
+	}
+	
+	private void drawSelection(Graphics g, int x, int line, int step) {
+		g.setColor(Color.magenta);
+		g.fillRect(x, (line-1) * doc.getLineHeight(), step, doc.getLineHeight()+doc.getFontMetrics().getDescent());
+		g.setColor(Color.black);
+	}
+	
+	private class MyMouseAdapter extends MouseAdapter{
+		public void mouseClicked(MouseEvent event){
+			
+		}
+		
+		public void mouseDragged(MouseEvent event){
+			
+		}
+	}
+	
+	private class MyMouseMotion implements MouseMotionListener{
+		public void mouseMoved(MouseEvent event){
+			
+		}
+		
+		public void mouseDragged(MouseEvent event){
+			
+		}
+	}
+}

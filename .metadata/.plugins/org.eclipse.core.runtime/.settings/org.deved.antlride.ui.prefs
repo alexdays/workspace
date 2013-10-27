@@ -1,0 +1,13 @@
+#Tue Mar 05 00:51:10 MSK 2013
+useQuickDiffPrefPage=true
+editor_bg_color=255,255,255
+useAnnotationsPrefPage=true
+content_assist_autoactivation=false
+sourceHoverBackgroundColor=255,255,225
+formatter.indentation.size=4
+formatterId=org.deved.antlride.formatter.AntlrFormatterFactory
+editor_folding_enabled=false
+formatter.tabulation.size=4
+formatter.tabulation.char=tab
+eclipse.preferences.version=1
+org.deved.antlride.Templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>

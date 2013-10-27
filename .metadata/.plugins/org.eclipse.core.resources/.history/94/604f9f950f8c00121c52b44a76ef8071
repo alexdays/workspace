@@ -1,0 +1,7 @@
+package notepad.controller;
+
+public class Controller {
+	public class NewEvent implements ActionListener {
+		
+	}
+}

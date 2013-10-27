@@ -1,0 +1,59 @@
+package notepad.view;
+import java.awt.BorderLayout;
+import java.util.Enumeration;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import by.bsuir.ppvis.utls.*;
+
+public class MainFrame extends JFrame {
+	private JMenuBar menuBar;
+	private JToolBar toolBar;
+	private TextView textView; 
+	//private ResourceBundle ru;
+	
+	public MainFrame(){
+		initCommonSettings();
+		initMenuBar();
+		initWorkArea();
+		initToolBar();
+		
+	}
+	
+	private void initCommonSettings(){
+		setSize(800, 600);
+		setTitle("Text Editor");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		
+	}
+	
+	private void initMenuBar(){
+		menuBar = new JMenuBar();
+		for(MenuItemEnum menuItems : MenuItemEnum.values()){
+			menuBar.add(CreateMenu.createMenu(menuItems));
+		}
+		setJMenuBar(menuBar);
+	}
+	
+	private void initToolBar(){
+		toolBar = new JToolBar();
+		
+		for(ChildMenus t : ChildMenus.values()){
+			toolBar.add(CreateTools.createTools(t));
+		}
+		add(toolBar, BorderLayout.NORTH);
+	}
+	
+	private void initWorkArea(){
+		textView = new TextView();
+		add(textView, BorderLayout.CENTER);
+		
+	}
+	
+	
+}

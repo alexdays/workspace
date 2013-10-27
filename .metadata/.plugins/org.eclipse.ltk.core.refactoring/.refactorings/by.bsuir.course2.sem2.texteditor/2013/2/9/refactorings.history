@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;by.bsuir.course2.sem2.texteditor&apos;&#x0D;&#x0A;- Original project: &apos;by.bsuir.course2.sem2.texteditor&apos;&#x0D;&#x0A;- Original element: &apos;by.bsuir.course2.sem2.texteditor/src/by.bsuir.course2.sem2.utls&apos;" description="Delete element" element1="/src&lt;by.bsuir.course2.sem2.utls" element2="/src&lt;by.bsuir.course2.sem2" element3="/src&lt;by.bsuir.course2" element4="/src&lt;by.bsuir" element5="/src&lt;by" elements="5" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1362070308875" subPackages="false" version="1.0"/>
+</session>

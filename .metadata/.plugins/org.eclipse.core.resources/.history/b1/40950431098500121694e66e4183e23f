@@ -1,0 +1,177 @@
+// $ANTLR 3.5 C:\\Documents and Settings\\Admin\\Мои документы\\T.g 2013-03-03 01:15:01
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+
+@SuppressWarnings("all")
+public class TLexer extends Lexer {
+	public static final int EOF=-1;
+	public static final int T__5=5;
+	public static final int ID=4;
+
+	// delegates
+	// delegators
+	public Lexer[] getDelegates() {
+		return new Lexer[] {};
+	}
+
+	public TLexer() {} 
+	public TLexer(CharStream input) {
+		this(input, new RecognizerSharedState());
+	}
+	public TLexer(CharStream input, RecognizerSharedState state) {
+		super(input,state);
+	}
+	@Override public String getGrammarFileName() { return "C:\\Documents and Settings\\Admin\\Мои документы\\T.g"; }
+
+	// $ANTLR start "T__5"
+	public final void mT__5() throws RecognitionException {
+		try {
+			int _type = T__5;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:2:6: ( 'call' )
+			// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:2:8: 'call'
+			{
+			match("call"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "T__5"
+
+	// $ANTLR start "ID"
+	public final void mID() throws RecognitionException {
+		try {
+			int _type = ID;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:3:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+			// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:3:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			{
+			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:3:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+			loop1:
+			while (true) {
+				int alt1=2;
+				int LA1_0 = input.LA(1);
+				if ( ((LA1_0 >= '0' && LA1_0 <= '9')||(LA1_0 >= 'A' && LA1_0 <= 'Z')||LA1_0=='_'||(LA1_0 >= 'a' && LA1_0 <= 'z')) ) {
+					alt1=1;
+				}
+
+				switch (alt1) {
+				case 1 :
+					// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:
+					{
+					if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||input.LA(1)=='_'||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+						input.consume();
+					}
+					else {
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						recover(mse);
+						throw mse;
+					}
+					}
+					break;
+
+				default :
+					break loop1;
+				}
+			}
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "ID"
+
+	@Override
+	public void mTokens() throws RecognitionException {
+		// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:1:8: ( T__5 | ID )
+		int alt2=2;
+		int LA2_0 = input.LA(1);
+		if ( (LA2_0=='c') ) {
+			int LA2_1 = input.LA(2);
+			if ( (LA2_1=='a') ) {
+				int LA2_3 = input.LA(3);
+				if ( (LA2_3=='l') ) {
+					int LA2_4 = input.LA(4);
+					if ( (LA2_4=='l') ) {
+						int LA2_5 = input.LA(5);
+						if ( ((LA2_5 >= '0' && LA2_5 <= '9')||(LA2_5 >= 'A' && LA2_5 <= 'Z')||LA2_5=='_'||(LA2_5 >= 'a' && LA2_5 <= 'z')) ) {
+							alt2=2;
+						}
+
+						else {
+							alt2=1;
+						}
+
+					}
+
+					else {
+						alt2=2;
+					}
+
+				}
+
+				else {
+					alt2=2;
+				}
+
+			}
+
+			else {
+				alt2=2;
+			}
+
+		}
+		else if ( ((LA2_0 >= 'A' && LA2_0 <= 'Z')||LA2_0=='_'||(LA2_0 >= 'a' && LA2_0 <= 'b')||(LA2_0 >= 'd' && LA2_0 <= 'z')) ) {
+			alt2=2;
+		}
+
+		else {
+			NoViableAltException nvae =
+				new NoViableAltException("", 2, 0, input);
+			throw nvae;
+		}
+
+		switch (alt2) {
+			case 1 :
+				// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:1:10: T__5
+				{
+				mT__5(); 
+
+				}
+				break;
+			case 2 :
+				// C:\\Documents and Settings\\Admin\\Мои документы\\T.g:1:15: ID
+				{
+				mID(); 
+
+				}
+				break;
+
+		}
+	}
+
+
+
+}

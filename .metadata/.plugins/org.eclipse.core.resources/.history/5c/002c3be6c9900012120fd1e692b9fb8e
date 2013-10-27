@@ -1,0 +1,170 @@
+package notepad.view;
+
+import java.awt.Color;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+
+import javax.swing.JPanel;
+
+import notepad.controller.*;
+import by.bsuir.ppvis.utls.KeyChar;
+import by.bsuir.ppvis.utls.SelectionMode;
+import notepad.model.Document;
+
+public final class TextView extends JPanel {
+	private Document doc;
+	private Carret carret;
+	private SelectionMode selectMode = SelectionMode.ON;
+	private boolean MouseIsDown = false;
+	
+	public TextView(){
+		doc = new Document();
+		carret = new Carret(doc);
+		setBackground(Color.WHITE);
+		addKeyListener(new Controller.KeyListen(this));
+		addMouseListener(new MyMouseAdapter());
+		addMouseMotionListener(new MyMouseMotion());
+		setFocusable(true);
+	
+	}
+	
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		carret.setFontMetrics(g.getFontMetrics());
+		doc.setFontMetrics(g.getFontMetrics());
+		carret.setLine(1);
+		redrawArea(g);
+	}
+	
+	private void setFocus(){
+		setFocusable(true);
+		requestFocus(true);
+	}
+	
+	public Document getDocument(){
+		return doc;
+	}
+	
+	public Carret getCarret(){
+		return carret;
+	}
+	
+	public void clearSpace(){
+		doc.setModel(null);	
+	}
+	
+	public int getCarretPos(){
+		return carret.getPos();
+	}
+	
+	///////////////////////
+	
+	private void redrawArea(Graphics g){
+		int i = 0;
+		int curX = 0, curY = 0;
+		char symbol[] = new char[1];
+		int line = 1;
+		
+		while (i < doc.getLength()) {
+		    symbol[0] = doc.getCharAt(i);
+		    
+		    switch (doc.getCharAt(i)) {
+			    case KeyChar.NEWLINE: {
+					++line;
+					carret.incLineNumber();
+					curX = 0;
+					//carret.setY((line - 1) * line_height + 5);
+					break;
+			    }
+			    			    
+			    case KeyChar.TAB: {
+					int step = 4 * doc.getCharWidth(' ') + 4;
+					curX += step;
+					break;
+			    }
+			    default: {
+					int step = doc.getCharWidth(symbol[0]) + 1;
+					
+					defaultDrawAction(g, curX, line, step, i);
+					
+					g.drawChars(symbol, 0, 1, curX, line * (doc.getLineHeight()));
+					curX += step;
+					carret.setXPos(curX);
+					carret.setYPos((line - 1) * doc.getLineHeight() + 5);
+					
+			    }
+		    }
+			++i;
+			
+			if (i == carret.getPos()) {
+			  	g.drawLine(carret.getXPos(), carret.getYPos(), carret.getXPos(),
+			   			carret.getYPos() - 14);
+			}
+		}
+		
+	}
+	
+	private void defaultDrawAction(Graphics g, int curX, int line, int step, int i){
+		if (!(doc.getBegSelectPos() == -1 || doc.getEndSelectPos() == -1)) {
+		    if (doc.getBegSelectPos() > doc.getEndSelectPos()) {
+			if (i >= doc.getEndSelectPos() && i <= doc.getBegSelectPos())
+			    drawSelection(g, curX, line, step);
+		    } else if (i <= doc.getEndSelectPos() && i >= doc.getBegSelectPos())
+		    	drawSelection(g, curX, line, step);
+		}
+	}
+	
+	private void drawSelection(Graphics g, int x, int line, int step) {
+		g.setColor(Color.magenta);
+		g.fillRect(x, (line-1) * doc.getLineHeight(), step, doc.getLineHeight()+doc.getFontMetrics().getDescent());
+		g.setColor(Color.black);
+	}
+	
+	private class MyMouseAdapter extends MouseAdapter{
+		public void mousePressed(MouseEvent event){
+			
+			if(event.getButton()==MouseEvent.BUTTON1){
+				MouseIsDown = true;
+				System.out.println("click");
+				doc.setBegSelectPos(carret.getPosByCoords(event.getX(), event.getY()));
+				System.out.println(carret.getPosByCoords(event.getX(), event.getY()));
+			}
+		}
+		
+		public void mouseClicked(MouseEvent event){
+			setFocus();
+		}
+		
+		public void mouseReleased(MouseEvent event){
+			if(event.getButton()==MouseEvent.BUTTON1&&MouseIsDown){
+				doc.setEndSelectPos(carret.getPosByCoords(event.getX(), event.getY()));
+				System.out.println(carret.getPosByCoords(event.getX(), event.getY()));
+				System.out.println("released");
+				MouseIsDown = false;
+			}
+		}
+		
+		public void mouseDragged(MouseEvent event){
+			
+		}
+	}
+	
+	private class MyMouseMotion implements MouseMotionListener{
+		public void mouseMoved(MouseEvent event){
+			if(event.getButton()==MouseEvent.BUTTON1&&MouseIsDown){
+				System.out.println("move");
+				doc.setEndSelectPos(carret.getPosByCoords(event.getX(), event.getY()));
+				repaint();
+			}
+		}
+		
+		public void mouseDragged(MouseEvent event){
+			
+		}
+	}
+}

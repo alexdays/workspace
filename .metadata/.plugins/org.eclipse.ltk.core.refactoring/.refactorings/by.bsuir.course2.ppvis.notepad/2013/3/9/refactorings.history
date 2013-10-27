@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;by.bsuir.ppvis.utls&apos; to &apos;by.bsuir.ppvis.notepad/src&apos;&#x0D;&#x0A;- Original project: &apos;by.bsuir.course2.ppvis.notepad&apos;&#x0D;&#x0A;- Destination element: &apos;by.bsuir.ppvis.notepad/src&apos;&#x0D;&#x0A;- Original element: &apos;by.bsuir.course2.ppvis.notepad/src/by.bsuir.ppvis.utls&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=by.bsuir.ppvis.notepad/src" element1="/src&lt;by.bsuir.ppvis.utls" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1362168960171" version="1.0"/>
+</session>

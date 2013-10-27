@@ -1,0 +1,38 @@
+package classes;
+
+import page.*;
+import java.io.File;
+import org.antlr.runtime.*;
+
+class Main {
+	public static long lexerTime = 0;
+	public static boolean profile = false;
+
+	static pageLexer lexer;
+
+	public static void main(String[] args) throws Exception {
+		try {
+			if (args.length < 1)
+				System.out.println("Too fewinput parameters!");
+
+			System.out.println(args[0]);
+			
+			String fileName = args[0];
+			lexer = new pageLexer();
+			
+			lexer.setCharStream(new ANTLRFileStream(fileName));
+			CommonTokenStream tokens = new CommonTokenStream();
+
+			pageParser parser = new pageParser(tokens);
+
+			// start parsing at the compilationUnit rule
+			parser.program();
+			System.out.println("finished "+fileName);
+		}
+		catch(Exception e) {
+			System.err.println("exception: "+e);
+			e.printStackTrace(System.err);   // so we can get stack trace
+		}
+	}
+}
+

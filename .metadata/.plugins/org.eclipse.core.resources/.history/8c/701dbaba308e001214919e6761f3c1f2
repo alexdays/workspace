@@ -1,0 +1,6 @@
+package by.bsuir.ppvis.utls;
+
+public class KeyChar {
+	public static char NEWLINE = '\n';
+	public static char TAB = '\t';
+}

@@ -1,0 +1,9 @@
+page.head(
+	#pagename("");
+)
+page.style(
+	%mos[path(12)];
+)
+page.content(
+	#image[path(23)]("");
+)

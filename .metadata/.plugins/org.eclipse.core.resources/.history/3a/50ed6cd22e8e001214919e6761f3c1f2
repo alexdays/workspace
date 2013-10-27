@@ -1,0 +1,12 @@
+package by.bsuir.ppvis.utls;
+
+public enum KeyChars {
+	NEWLINE('\n'), TAB('\t');
+	private char key;
+	private KeyChars(char key){
+		this.key = key;
+	}
+	public char toChar(){
+		return key;
+	}
+}

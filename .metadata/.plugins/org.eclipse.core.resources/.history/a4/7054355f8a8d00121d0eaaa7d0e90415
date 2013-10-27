@@ -1,0 +1,173 @@
+package notepad.controller;
+
+import notepad.model.Document;
+import notepad.view.*;
+
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+
+import javax.swing.JFileChooser;
+
+import by.bsuir.ppvis.utls.ChildMenus;
+
+public class Controller {
+	
+	public ActionListener getListener(TextView textView, ChildMenus menu){
+		if(menu == ChildMenus.NEW){
+			return new NewEvent(textView);
+		}
+	}
+	
+	public class NewEvent implements ActionListener {
+		private TextView textView;
+		
+		public NewEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			textView.getGraphics().clearRect(0, 0, 400, 400);
+		}
+	}
+	
+	public class OpenEvent implements ActionListener {
+		private TextView textView;
+		
+		public OpenEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			JFileChooser dialog = new JFileChooser();
+			if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION){
+				File file = dialog.getSelectedFile();
+				String fileName = file.getAbsolutePath();
+				
+				try {
+					BufferedReader buf = new BufferedReader(new FileReader(fileName));
+					String fileContent = "", s = "";
+					while((s = buf.readLine())==null){
+						fileContent+=s;
+					}
+					buf.close();
+					textView.getDocument().setModel(fileContent);
+					textView.repaint();
+					
+				} catch (FileNotFoundException e) {
+					
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public class SaveEvent implements ActionListener {
+		private TextView textView;
+		
+		public SaveEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			JFileChooser dialog = new JFileChooser();
+			if(dialog.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
+				File file = dialog.getSelectedFile();
+								
+				try {
+					FileWriter writer = new FileWriter(file);
+					writer.write(textView.getDocument().getModel());
+					writer.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public class ExitEvent implements ActionListener {
+		private TextView textView;
+		private MainFrame frame;
+		
+		public ExitEvent(TextView tv){
+			textView = tv;
+			frame = (MainFrame)textView.getParent();
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			frame.dispose();
+		}
+	}
+	
+	public class PasteEvent implements ActionListener {
+		private TextView textView;
+		
+		public PasteEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			String clipboardText;
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();	
+			Transferable trans = clipboard.getContents(this);
+			if(trans!=null&&trans.isDataFlavorSupported(DataFlavor.stringFlavor)){
+				try {
+					clipboardText = (String)trans.getTransferData(DataFlavor.stringFlavor);
+					textView.getDocument().insert(textView.getCarretPos(), clipboardText);
+					textView.repaint();
+				} catch (UnsupportedFlavorException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+				
+			
+		}
+	}
+	public class CopyEvent implements ActionListener {
+		private TextView textView;
+		
+		public CopyEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			String clipboardText;
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();	
+			StringSelection textForClipboard = 
+							new StringSelection(textView.getDocument().getSelectedText());
+			clipboard.setContents(textForClipboard, null);
+						
+		}
+	}
+	
+	public class CutEvent implements ActionListener {
+		private TextView textView;
+		
+		public CutEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			String clipboardText;
+			Document doc = textView.getDocument();
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();	
+			StringSelection textForClipboard = 
+							new StringSelection(doc.cutSubString());
+			clipboard.setContents(textForClipboard, null);
+						
+		}
+	}
+}

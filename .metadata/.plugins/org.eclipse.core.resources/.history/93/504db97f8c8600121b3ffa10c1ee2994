@@ -1,0 +1,16 @@
+grammar JParser;
+
+options {
+  language = Java;
+}
+
+page
+	: 	head_block
+		style_block
+		content_block
+	;
+
+head_block
+	: 'page' '.' 'head' '(' head_tags ')'
+	;
+head_

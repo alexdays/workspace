@@ -1,0 +1,13 @@
+package by.bsuir.ppvis.utls;
+
+public enum KeyChars {
+	NEWLINE('\n'), TAB('\t');
+	private char key;
+	private KeyChars(char key){
+		this.key = key;
+	}
+	@Override
+	public String toString(){
+		return key;
+	}
+}

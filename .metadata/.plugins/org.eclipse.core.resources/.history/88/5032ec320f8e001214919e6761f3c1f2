@@ -1,0 +1,6 @@
+package by.bsuir.ppvis.utls;
+
+public enum KeyChars {
+	NEWLINE('\n'), TAB('\t'), N = 'n';
+	
+}

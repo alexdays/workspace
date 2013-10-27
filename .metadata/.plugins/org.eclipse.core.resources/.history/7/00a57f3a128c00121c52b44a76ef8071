@@ -1,0 +1,33 @@
+package notepad.controller;
+
+import notepad.view.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Controller {
+	public class NewEvent implements ActionListener {
+		private TextView textView;
+		
+		public NewEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			textView.getGraphics().clearRect(0, 0, 400, 400);
+		}
+	}
+	
+	public class OpenEvent implements ActionListener {
+		private TextView textView;
+		
+		public NewEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			textView.getGraphics().clearRect(0, 0, 400, 400);
+		}
+	}
+	
+	
+}

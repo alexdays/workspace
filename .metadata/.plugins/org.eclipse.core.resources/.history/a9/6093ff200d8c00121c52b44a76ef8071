@@ -1,0 +1,14 @@
+package by.bsuir.ppvis.utls;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import javax.swing.JButton;
+
+
+public class CreateTools {
+	public static JButton createTools(ChildMenus item){
+		JButton btn = new JButton(item.getIcon());
+		return btn;
+	}
+}

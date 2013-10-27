@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" environment="org.eclipse.dltk.core.environment.localEnvironment">
+  <entries path="D:/workspace/ANTLR test/src/a/Sample.g" timestamp="1362595953968" lastAccessTime="1363199565109"/>
+  <entries path="D:/workspace/PageCore/src/by/bsuir/iit/pagecore/pagecore.g" timestamp="1363515770484" lastAccessTime="1363516036390"/>
+  <entries path="D:/workspace/core/src/core/grammer/main.g" timestamp="1364060810859" lastAccessTime="1364424403328"/>
+  <entries path="D:/workspace/by.bsuir.iit.browser/src/by/bsuir/iit/browser/core/main.g" timestamp="1364069066750" lastAccessTime="1364424403265"/>
+  <entries path="D:/workspace/by.bsuir.iit.browser/src/by/bsuir/iit/browser/core/MOPTree.g" timestamp="1364069358625" lastAccessTime="1364424403265"/>
+</cache:CacheIndex>

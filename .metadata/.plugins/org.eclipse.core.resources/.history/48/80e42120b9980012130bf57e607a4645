@@ -1,0 +1,188 @@
+package notepad.view;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GraphicsEnvironment;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Enumeration;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JToggleButton;
+import javax.swing.JToolBar;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import by.bsuir.ppvis.utls.*;
+
+public final class MainFrame extends JFrame {
+	private JMenuBar menuBar;
+	private JToolBar toolBar;
+	private JScrollPane scrollTextView;
+	private TextView textView; 
+	private JComboBox fontFamilies ;
+	private JSpinner fontSize;
+	private JToggleButton boldStyleBtn;
+	private JToggleButton italicStyleBtn;
+	private JToggleButton plainStyleBtn;
+	private JToggleButton rusLangBtn;
+	private JToggleButton engLangBtn;
+	private String currentLanguage = Language.ENG;
+	private int currentFontStyle;
+		
+	private final int DEFAULT_FONT_SIZE = 14;
+	//private ResourceBundle ru;
+	
+	public MainFrame(){
+		initCommonSettings();
+		initWorkArea();
+		initMenuBar();
+		initToolBar();
+		
+	}
+	
+	private void initCommonSettings(){
+		setSize(800, 600);
+		setTitle("Text Editor");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
+		
+	}
+	
+	private void initWorkArea(){
+		textView = new TextView();
+		textView.setParent(this);
+		scrollTextView = new JScrollPane(textView);
+		scrollTextView.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		scrollTextView.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollTextView.setEnabled(true);
+		
+		add(scrollTextView, BorderLayout.CENTER);
+	}
+	
+	private void initMenuBar(){
+		menuBar = new JMenuBar();
+		createMenu();
+	}
+	
+	private void createMenu(){
+		menuBar.removeAll();
+		for(MenuItemEnum menuItems : MenuItemEnum.values()){
+			menuBar.add(CreateMenu.createMenu(textView, menuItems, currentLanguage));
+		}
+		setJMenuBar(menuBar);
+	}
+	
+	private void initToolBar(){
+		initSomeTools();
+		toolBar = new JToolBar();
+		for(ChildMenus t : ChildMenus.values()){
+			toolBar.add(CreateTools.createTools(textView, t));
+		}
+		toolBar.add(boldStyleBtn);
+		toolBar.add(italicStyleBtn);
+		toolBar.add(plainStyleBtn);
+		toolBar.add(fontFamilies);
+		toolBar.add(fontSize);
+		toolBar.add(rusLangBtn,BorderLayout.EAST);
+		toolBar.add(engLangBtn,BorderLayout.EAST);
+		
+		add(toolBar, BorderLayout.NORTH);
+	}
+	
+	private void initSomeTools(){
+		createSomeToolBtns();
+		Insets marginForStyleBtns = new Insets(7,5,7,5);
+		boldStyleBtn.setMargin(marginForStyleBtns);
+		italicStyleBtn.setMargin(marginForStyleBtns);
+		plainStyleBtn.setMargin(marginForStyleBtns);
+		rusLangBtn.setMargin(marginForStyleBtns);
+		engLangBtn.setMargin(marginForStyleBtns);
+		fontSize.setValue(DEFAULT_FONT_SIZE);
+		defineToolActions();
+		
+	}
+	
+	private void createSomeToolBtns(){
+		GraphicsEnvironment e = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		String[] allFonts = e.getAvailableFontFamilyNames();
+		boldStyleBtn = new JToggleButton("B");
+		italicStyleBtn = new JToggleButton("I");
+		plainStyleBtn = new JToggleButton("P");
+		rusLangBtn = new JToggleButton("RUS");
+		engLangBtn = new JToggleButton("ENG");
+		fontFamilies = new JComboBox(allFonts);	
+		fontSize = new JSpinner();
+	}
+	
+	private void defineToolActions(){
+		
+		fontFamilies.addActionListener(new FontChange());
+		fontSize.addChangeListener(new ChangeListener(){
+			public void stateChanged(ChangeEvent event){
+				changeFont(currentFontStyle);
+			}
+		});
+		boldStyleBtn.addActionListener(new FontChange(Font.BOLD));
+		italicStyleBtn.addActionListener(new FontChange(Font.ITALIC));
+		plainStyleBtn.addActionListener(new FontChange(Font.PLAIN));
+		rusLangBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				currentLanguage = Language.RUS;
+				rusLangBtn.setSelected(true);
+				engLangBtn.setSelected(false);
+				createMenu();
+			}
+		});
+		engLangBtn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent event){
+				currentLanguage = Language.ENG;
+				rusLangBtn.setSelected(false);
+				engLangBtn.setSelected(true);
+				createMenu();
+			}
+		});
+		
+	}
+	
+	private void changeFont(int fontStyle){
+		String fontFamily = fontFamilies.getSelectedItem().toString();
+		int fontSize = Integer.parseInt(MainFrame.this.fontSize.getValue().toString());
+		textView.setFont(new Font(fontFamily, fontStyle, fontSize));
+		textView.repaint();
+	}
+	
+	public class FontChange implements ActionListener {
+		private int fontStyle;
+		public FontChange(){
+			fontStyle = currentFontStyle;
+		}
+		public FontChange(int fontStyle){
+			this.fontStyle = fontStyle;
+		}
+		public void actionPerformed(ActionEvent event){
+			if(fontStyle==Font.BOLD){
+				italicStyleBtn.setSelected(false);
+				plainStyleBtn.setSelected(false);
+			} else if(fontStyle == Font.ITALIC){
+				boldStyleBtn.setSelected(false);
+				plainStyleBtn.setSelected(false);
+			} else if(fontStyle == Font.PLAIN){
+				boldStyleBtn.setSelected(false);
+				italicStyleBtn.setSelected(false);
+			}
+			changeFont(fontStyle);
+		}
+		
+	}
+	
+	
+}

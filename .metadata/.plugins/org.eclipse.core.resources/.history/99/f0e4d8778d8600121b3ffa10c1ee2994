@@ -1,0 +1,24 @@
+grammar JParser;
+
+options {
+  language = Java;
+}
+
+page
+	: 	head_block
+		
+	;
+
+head_block
+	: 'page' '.' 'head' '(' head_tags ')'
+	;
+head_tags
+	: head_tag*
+	;
+head_tag
+	: '#' ID '(' ID ')' ';'
+	;
+WS 
+	: {'\n'|'\r'|' '}* {channel = HIDDEN}
+	;
+

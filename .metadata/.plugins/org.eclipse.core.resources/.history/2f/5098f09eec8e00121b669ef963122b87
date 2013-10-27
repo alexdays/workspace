@@ -1,0 +1,60 @@
+grammar pagecore;
+
+options {
+  language = Java;
+}
+
+@header {
+  package by.bsuir.iit.pagecore;
+}
+
+@members {
+
+}
+
+@lexer::header {
+  package by.bsuir.iit.pagecore;
+}
+
+ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
+    ;
+
+page
+	: headBlock?
+	  styleBlock?
+	  contentBlock?
+	;
+
+headBlock
+	: 'page' '.' 'head' '(' headTag* ')'
+	;
+styleBlock
+	: 'page' '.' 'style' '(' styleTag* ')'
+	;
+contentBlock
+	: 'page' '.' 'content' '(' contentTag* ')'
+	;
+headTag
+	: '#' ID '(' STRING? ')' ';' 
+	;
+styleTag
+	: '%' ID '[' params? ']' ';' 
+	;
+contentTag
+	: '#' ID '[' params? ']' '(' STRING? ')' ';'
+	;
+VALUE
+	: ~('"'|'\r'|'\n')*
+    ;
+params
+	: param (',' param)*
+	;
+param
+	: ID '(' '"' VALUE '"' ')' 
+	;
+STRING
+	: 	'"' VALUE '"'		
+	;
+WS
+	: (' '|'\t'|'\n'|'\r')+ {$channel = HIDDEN;}
+	;

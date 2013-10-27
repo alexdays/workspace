@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="AntlrTokenVocabSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode resource=&quot;by.bsuir.iit.browser/bin/by/bsuir/iit/browser/core/main.g&quot;/&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="-83" key="DIALOG_Y_ORIGIN"/>
+			<item value="-50" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+	<section name="package">
+		<item value="380" key="height"/>
+		<item value="438" key="width"/>
+		<item value="310" key="y"/>
+		<item value="421" key="x"/>
+	</section>
+</section>

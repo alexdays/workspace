@@ -1,0 +1,6 @@
+page.head(
+	#pagename[]("")
+).
+page.style(
+	#mos[]("")
+).

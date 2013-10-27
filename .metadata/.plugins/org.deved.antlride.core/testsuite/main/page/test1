@@ -1,0 +1,9 @@
+page.head(
+	#pagename("name");
+)
+page.style(
+	%url[size("12"), color("blue")];
+)
+page.content(
+	#image[path("c")]("owiejofi");
+)

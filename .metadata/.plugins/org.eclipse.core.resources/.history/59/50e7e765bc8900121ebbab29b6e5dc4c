@@ -1,0 +1,17 @@
+package by.bsuir.ppvis.utls;
+
+import javax.swing.ImageIcon;
+
+public enum ChildMenus {
+	NEW("new"), OPEN("open"), SAVE("save"),
+	SAVEAS("saveas"), EXIT("exit"), COPY("copy"),
+	CUT("cut"), PASTE("paste");
+	private String label;
+	private ImageIcon icon;
+	private ChildMenus(String label, ImageIcon icon){
+		this.label = label;
+	}
+	public String getLabel(){
+		return label;
+	}
+}

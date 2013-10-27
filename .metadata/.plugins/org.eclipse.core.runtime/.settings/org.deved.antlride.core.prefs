@@ -1,0 +1,7 @@
+#Tue Mar 05 01:03:51 MSK 2013
+eclipse.preferences.version=1
+antlr_core_builder_runtime=3.3
+lastModified=1362262597984
+antlr_core_code_generator_out_option=p
+antlr_core_code_generator_append_java_package_to_out_folder=true
+antlr_core_code_generator_out_folder=antlr-generated

@@ -1,0 +1,5 @@
+package by.bsuir.ppvis.utls;
+
+public enum KeyChars {
+
+}

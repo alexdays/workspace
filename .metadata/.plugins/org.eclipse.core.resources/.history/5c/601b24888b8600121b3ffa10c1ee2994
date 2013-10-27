@@ -1,0 +1,7 @@
+grammar JParser;
+
+options {
+  language = Java;
+}
+
+rule: ;

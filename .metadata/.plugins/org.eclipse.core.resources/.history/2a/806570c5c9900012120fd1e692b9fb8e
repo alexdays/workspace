@@ -1,0 +1,317 @@
+package notepad.controller;
+
+import notepad.model.Document;
+import notepad.view.*;
+
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+import java.awt.datatransfer.UnsupportedFlavorException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.io.*;
+
+import javax.swing.JFileChooser;
+
+import by.bsuir.ppvis.utls.ChildMenus;
+import by.bsuir.ppvis.utls.KeyChar;
+import by.bsuir.ppvis.utls.SelectionMode;
+
+public class Controller {
+	
+	private Document doc;
+	private Carret carret;
+	private TextView textView;
+	private SelectionMode selectMode;
+	
+	public static ActionListener getListener(TextView textView, ChildMenus menu){
+		if(menu == ChildMenus.NEW){
+			return new NewEvent(textView);
+		} else if(menu == ChildMenus.OPEN){
+			return new OpenEvent(textView);
+		} else if(menu == ChildMenus.SAVE){
+			return new SaveEvent(textView);
+		} else if(menu == ChildMenus.SAVEAS){
+			return new SaveEvent(textView);
+		} else if(menu == ChildMenus.EXIT){
+			return new ExitEvent(textView);
+		} else if(menu == ChildMenus.COPY){
+			return new CopyEvent(textView);
+		} else if(menu == ChildMenus.CUT){
+			return new CutEvent(textView);
+		} else if(menu == ChildMenus.PASTE){
+			return new PasteEvent(textView);
+		}
+		return null;
+	}
+	
+	public static class NewEvent implements ActionListener {
+		private TextView textView;
+		
+		public NewEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			Document doc = textView.getDocument();
+			Carret carret = textView.getCarret();
+			doc.setModel("");
+			carret.setPos(0);
+			textView.repaint();
+		}
+	}
+	
+	public static class OpenEvent implements ActionListener {
+		private TextView textView;
+		
+		public OpenEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			JFileChooser dialog = new JFileChooser();
+			if(dialog.showOpenDialog(null)==JFileChooser.APPROVE_OPTION){
+				File file = dialog.getSelectedFile();
+				String fileName = file.getAbsolutePath();
+				
+				try {
+					BufferedReader buf = new BufferedReader(new FileReader(fileName));
+					String fileContent = "", s = "";
+					while((s = buf.readLine())!=null){
+						fileContent+=s;
+					}
+					buf.close();
+					System.out.print("w****");
+					textView.getDocument().setModel(fileContent);
+					textView.repaint();
+					
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public static class SaveEvent implements ActionListener {
+		private TextView textView;
+		
+		public SaveEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			JFileChooser dialog = new JFileChooser();
+			if(dialog.showSaveDialog(null)==JFileChooser.APPROVE_OPTION){
+				File file = dialog.getSelectedFile();
+								
+				try {
+					FileWriter writer = new FileWriter(file);
+					writer.write(textView.getDocument().getModel());
+					writer.close();
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+	
+	public static class ExitEvent implements ActionListener {
+		private TextView textView;
+		//private MainFrame frame;
+		
+		public ExitEvent(TextView tv){
+			textView = tv;
+			//frame = (MainFrame)textView.getParent();
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			//frame.dispose();
+		}
+	}
+	
+	public static class PasteEvent implements ActionListener {
+		private TextView textView;
+		
+		public PasteEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			String clipboardText;
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();	
+			Transferable trans = clipboard.getContents(this);
+			if(trans!=null&&trans.isDataFlavorSupported(DataFlavor.stringFlavor)){
+				try {
+					clipboardText = (String)trans.getTransferData(DataFlavor.stringFlavor);
+					textView.getDocument().insert(textView.getCarretPos(), clipboardText);
+					textView.repaint();
+				} catch (UnsupportedFlavorException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+				
+			
+		}
+	}
+	public static class CopyEvent implements ActionListener {
+		private TextView textView;
+		
+		public CopyEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();	
+			Document doc = textView.getDocument();
+			StringSelection textForClipboard = 
+							new StringSelection(doc.getSelectedText());
+			clipboard.setContents(textForClipboard, null);
+			textView.repaint();
+						
+		}
+	}
+	
+	public static class CutEvent implements ActionListener {
+		private TextView textView;
+		
+		public CutEvent(TextView tv){
+			textView = tv;
+		}
+		
+		public void actionPerformed(ActionEvent event){
+			Document doc = textView.getDocument();
+			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();	
+			StringSelection textForClipboard = 
+							new StringSelection(doc.cutSubString());
+			clipboard.setContents(textForClipboard, null);
+			textView.repaint();
+						
+		}
+	}
+	
+	
+	public static class KeyListen implements KeyListener {
+		
+		public KeyListen(TextView tv){
+			textView = tv;
+			doc = textView.getDocument();
+			carret = textView.getCarret();
+		}
+		
+		public void keyPressed(KeyEvent event){
+			if (event.isShiftDown() && selectMode == SelectionMode.OFF) {
+					selectMode = SelectionMode.ON;
+					doc.setBegSelectPos(carret.getPos());
+			    } else if(!event.isShiftDown()) selectMode = SelectionMode.OFF;
+
+			    switch (event.getKeyCode()) {
+				    case KeyEvent.VK_ENTER: {
+						EnterAction();
+						break;
+				    }
+				    case KeyEvent.VK_BACK_SPACE: {
+						BackspaceAction();
+						break;
+				    }
+				    case KeyEvent.VK_TAB: {
+						doc.append('\t');
+						break;
+				    }
+				    case KeyEvent.VK_LEFT: {
+						if (carret.getPos() - 1 >= 0)
+						    carret.dec();
+						checkSelection();
+					break;
+				    }
+				    case KeyEvent.VK_RIGHT: {
+						if (carret.getPos() + 1 <= doc.getModel().length())
+							carret.inc();
+						checkSelection();
+						break;
+				    }
+				    case KeyEvent.VK_UP: {
+	
+						if (carret.getLineNumber() > 1) {
+						    carret.moveUp();
+						}
+						checkSelection();
+						break;
+				    }
+	
+				    case KeyEvent.VK_DOWN: {
+				    	
+						if (carret.getLineNumber() < doc.getLineCount()) {
+						    carret.moveDown();
+						}
+						checkSelection();
+						break;
+				    }
+				    case KeyEvent.VK_SHIFT: {
+				    	break;
+				    }
+				    case KeyEvent.VK_CONTROL: {
+				    	break;
+				    }
+				    case KeyEvent.VK_ALT: {
+				    	break;
+				    }
+				    case KeyEvent.VK_CAPS_LOCK: {
+				    	break;
+				    }
+				    default: {
+				    	checkSelection();
+				    	DefaultAction(event);
+				    }
+			    }
+			    textView.repaint();
+		}
+		
+		public void keyReleased(KeyEvent event){
+			
+		}
+		
+		public void keyTyped(KeyEvent event){
+			
+		}
+	}
+	
+	public void EnterAction(){
+		//++count;
+		selectMode = SelectionMode.OFF;
+		doc.insert(carret.getPos(), String.valueOf(KeyChar.NEWLINE));
+		carret.inc();
+	}
+	
+	public void BackspaceAction(){
+		selectMode = SelectionMode.OFF;
+		doc.erasePrevChar(carret.getPos());
+		carret.dec();
+	}
+	
+	public void DefaultAction(KeyEvent e){
+		selectMode = SelectionMode.OFF;
+		doc.insert(carret.getPos(), String.valueOf(e.getKeyChar()));
+		//++count;
+		carret.inc();
+
+	}
+	
+	private void checkSelection(){
+		if(selectMode==SelectionMode.ON){
+			doc.setEndSelectPos(carret.getPos());
+		} else {
+			doc.setBegSelectPos(-1);
+			doc.setEndSelectPos(-1);
+		}
+	}
+}

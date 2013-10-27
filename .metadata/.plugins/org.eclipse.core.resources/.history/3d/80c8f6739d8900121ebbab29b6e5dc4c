@@ -1,0 +1,167 @@
+package notepad.view;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+
+import notepad.model.Document;
+
+public class Carret {
+	private int lineNumber;
+	private int pos;
+	private int x, y;
+	private Document doc;
+	private FontMetrics fontMetrics;
+	public Carret(Document d){
+		doc = d;
+		lineNumber = 1;
+		pos = 0;
+	}
+	
+	public void setFontMetrics(FontMetrics fm){
+		fontMetrics = fm;
+	}
+	
+	public void setPos(int p){
+		if(p<0) pos = 0;
+		else if(p>doc.getLength()) pos = doc.getLength()-1;
+		else pos = p;
+	}
+	
+	public void setLine(int l){
+		lineNumber = l;
+	}
+	
+	public void incLineNumber(){
+		++lineNumber;
+	}
+	
+	public void decLineNumber(){
+		lineNumber = (lineNumber>1)?(lineNumber-1):(lineNumber);
+	}
+	
+	public int getPos(){
+		return pos;
+	}
+	
+	public int getLine(){
+		return lineNumber;
+	}
+	
+	public void inc(){
+		if(pos<=doc.getLength()-1) ++pos;
+	}
+	
+	public void dec(){
+		if(pos>0)--pos;
+	}
+	
+	public int getLineNumber(){
+		int ln = 1, p = 0;
+	    while (p < pos) {
+			if (doc.getCharAt(p) == '\n')
+			    ++ln;
+			++p;
+	    }
+	    lineNumber = ln;
+	    
+		return lineNumber;
+	}
+	
+	public void setXPos(int x){
+		this.x = x;
+	}
+	
+	public void setYPos(int y){
+		this.y = y;
+	}
+	
+	public int getXPos(){
+		int p = 0;
+	    int n = 1, curXPos = 0;
+	        
+	   	while (p < doc.getLength()) {
+		    if (n != getLine()) {
+			if (doc.getCharAt(p) == '\n')
+			    ++n;
+		    } else {
+		    	break;
+		    }
+		    ++p;
+		}
+		while (p < this.pos) {
+		    curXPos += fontMetrics.charWidth(doc.getCharAt(p++)) + 1;
+		}
+		
+		return curXPos;
+	}
+	
+	public int getYPos(){
+		int i = 0, lineNumb = 1;
+		while(i<pos){
+			if (doc.getCharAt(i) == '\n')
+			    ++lineNumb;
+			++i;
+		}
+		
+		return lineNumb*doc.getLineHeight();
+	}
+	
+	public void moveUp(){
+		int p = 0;
+		int n = 1, curXPos = 0;
+		boolean status = false;
+		
+		curXPos = getXPos();
+		int newXPos = 0;
+
+		while (p < doc.getLength()) {
+		    if (n != getLine()-1) {
+			if (doc.getCharAt(p) == '\n')
+			    ++n;
+		    } else {
+		    	status = true;
+		    	break;
+		    }
+		    ++p;
+		}
+		if (status) {
+		    while (newXPos < curXPos) {
+				if (doc.getCharAt(p) == '\n')
+				    break;
+				newXPos += fontMetrics.charWidth(doc.getCharAt(p++)) + 1;
+		    }
+		}
+		this.pos = p;
+		decLineNumber();
+	}
+	
+	public void moveDown(){
+		int p = 0;
+		int n = 1, curXPos = 0;
+		boolean status = false;
+		
+		curXPos = getXPos();
+		int newXPos = 0;
+
+		while (p < doc.getLength()) {
+		    if (n != getLine()+1) {
+				if (doc.getCharAt(p) == '\n')
+				    ++n;
+		    } else {
+				status = true;
+				break;
+		    }
+		    ++p;
+		}
+		if (status) {
+		    while (newXPos < curXPos) {
+			if (doc.getCharAt(p) == '\n')
+			    break;
+			newXPos += fontMetrics.charWidth(doc.getCharAt(p++)) + 1;
+		    }
+		}
+		this.pos = p;
+		incLineNumber();
+
+	}
+}
