@@ -41,8 +41,13 @@ public class Operation {
          stat.execute("INSERT INTO concepts (name,content) VALUES('"+name+"','"+content+"')");
     }
     public String getConceptContent(String conceptName) throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException, SQLException{
-        ResultSet res = stat.executeQuery("SELECT * FROM concepts WHERE name='"+conceptName+"'");
-        return res.getString("content");
+       ResultSet res = stat.executeQuery("SELECT * FROM concepts");
+        while(res.next()){
+            if(res.getString("name").equals(conceptName)){
+                return res.getString("content");
+            }
+        }  
+        return null;
     }
     public void changeConcept(String conceptName, String content) throws ParserConfigurationException, SAXException, IOException, IOException, TransformerException, SQLException{
          stat.execute("UPDATE concepts SET name='"+conceptName+"', content='"+content+"' WHERE name='"+conceptName+"'");

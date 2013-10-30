@@ -17,6 +17,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,32 +27,37 @@ import org.json.JSONObject;
  */
 @WebServlet(name = "OAuth", urlPatterns = {"/OAuth"})
 public class OAuth extends HttpServlet {
+    private static final String client_id = "708635192499906";
+    private static final String redirect_uri="http://localhost:8084/by.bsuir.aipos.oauth/OAuth";
+    private static final String client_secret="f5c9bb2753b09bdc48e2e91c341248be";
     
-    @Override
-    public void service(HttpServletRequest required, HttpServletResponse response){
-       String code = required.getParameter("code");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        String code = request.getParameter("code");
         if (code == null || code.equals("")) {
             // an error occurred, handle this
         }
-
+        response.getWriter().println(code);
         String token = null;
         try {
-            String g = "https://graph.facebook.com/oauth/access_token?client_id=708635192499906&redirect_uri=http://localhost:8084/by.bsuir.aipos.oauth&client_secret=f5c9bb2753b09bdc48e2e91c341248be&code=" + code;
+            String g = "https://graph.facebook.com/oauth/access_token?"
+                    + "client_id="+client_id
+                    + "&redirect_uri="+URLEncoder.encode(redirect_uri)
+                    + "&client_secret="+client_secret
+                    + "&code="+code;
             URL u = new URL(g);
             URLConnection c = u.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
-            String inputLine;
-            StringBuffer b = new StringBuffer();
-            while ((inputLine = in.readLine()) != null)
-                b.append(inputLine + "\n");            
-            in.close();
-            token = b.toString();
-            if (token.startsWith("{"))
-                throw new Exception("error on requesting token: " + token + " with code: " + code);
-        } catch (Exception e) {
-                // an error occurred, handle this
+            BufferedReader reader = new BufferedReader(new InputStreamReader(c.getInputStream()));
+            String temp = null;
+            while((temp = reader.readLine())!=null){
+                 token += temp;
+            }   
+            token = token.replace("null", "");
+            
+        } catch(Exception e){
+        
         }
-
         String graph = null;
         try {
             String g = "https://graph.facebook.com/me?" + token;
@@ -69,11 +75,11 @@ public class OAuth extends HttpServlet {
         }
 
         String facebookId;
-        String firstName;
+        String firstName = null;
         String middleNames;
         String lastName;
-        String email;
-        //Gender gender;
+        String email = null;
+        String gender;
         try {
             JSONObject json = new JSONObject(graph);
             facebookId = json.getString("id");
@@ -86,33 +92,31 @@ public class OAuth extends HttpServlet {
                 middleNames = null;
             lastName = json.getString("last_name");
             email = json.getString("email");
-//            if (json.has("gender")) {
-//                String g = json.getString("gender");
-//                if (g.equalsIgnoreCase("female"))
-//                    gender = Gender.FEMALE;
-//                else if (g.equalsIgnoreCase("male"))
-//                    gender = Gender.MALE;
-//                else
-//                    gender = Gender.UNKNOWN;
-//            } else {
-//                gender = Gender.UNKNOWN;
-//            }
+            if (json.has("gender")) {
+                String g = json.getString("gender");
+                if (g.equalsIgnoreCase("female"))
+                    gender = "female";
+                else if (g.equalsIgnoreCase("male"))
+                    gender = "male";
+                else
+                    gender = "unknown";
+            } else {
+                gender = "unknown";
+            }
         } catch (JSONException e) {
+            // an error occurred, handle this
         }
-        
-    }
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
+        HttpSession session = request.getSession();
+        session.setAttribute("user_name", firstName);
+        session.setAttribute("user_email", email);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       processRequest(request, response);
     }
 
    

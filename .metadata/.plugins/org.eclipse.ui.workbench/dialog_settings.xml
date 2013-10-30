@@ -16,18 +16,17 @@
 		<item value="8" key="DIALOG_Y_ORIGIN"/>
 		<item value="331" key="DIALOG_X_ORIGIN"/>
 	</section>
-	<section name="NewWizardAction">
-		<item value="org.deved.antlride.ui.wizards.treeGrammar" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
-		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
-			<item value="org.eclipse.ui.Basic"/>
-			<item value="org.deved.antlride.ui"/>
-			<item value="org.eclipse.jdt.ui.java"/>
-		</list>
-	</section>
 	<section name="ZipFileImportWizard">
 		<item value="false" key="WizardZipFileResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<list key="WizardZipFileResourceImportPage1.STORE_SOURCE_NAMES_ID">
 			<item value="D:\ProgramFold\Азаренко\Азаренко\antlr\antlr-3.3-complete.jar"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.jdt.ui.java"/>
 		</list>
 	</section>
 	<section name="ImportExportAction">

@@ -19,6 +19,7 @@
     </head>
     <body>
         <h1><center>oAuth</center></h1>
+        <i>За штурвалом: ${user_name}, у которого email: ${user_email}</i>
         <table width="489" border="0">
             <tr>
                 <td width="152">
@@ -28,7 +29,7 @@
                         <ul><a href="add.jsp">Добавление</a></ul>
                         <ul><a href="change.jsp">Изменение</a></ul>
                         <ul><a href="erase.jsp">Удаление</a></ul>
-                        <ul><a href="http://www.facebook.com/dialog/oauth?client_id=708635192499906&redirect_uri=http://localhost:8084/by.bsuir.aipos.oauth&scope=email">facebook</a></ul>
+                        <ul><a href="http://www.facebook.com/dialog/oauth?client_id=708635192499906&redirect_uri=http://localhost:8084/by.bsuir.aipos.oauth/OAuth&scope=email">facebook</a></ul>
                     </div>
                 </td>
                 <td width="327">
