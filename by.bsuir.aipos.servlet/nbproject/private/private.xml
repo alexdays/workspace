@@ -2,12 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/G:/workspace/by.bsuir.aipos.servlet/src/java/model/Operation.java</file>
-            <file>file:/G:/workspace/by.bsuir.aipos.servlet/src/java/service/JServlet.java</file>
-            <file>file:/G:/workspace/by.bsuir.aipos.servlet/web/index.jsp</file>
-            <file>file:/G:/workspace/by.bsuir.aipos.servlet/web/content.jsp</file>
-            <file>file:/G:/workspace/by.bsuir.aipos.servlet/web/META-INF/context.xml</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

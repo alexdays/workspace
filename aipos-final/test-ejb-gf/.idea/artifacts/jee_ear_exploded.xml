@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="jee:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/jee_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="jee/javaeeApplication/javaEEApplication" />
+      <element id="directory" name="ejb.jar">
+        <element id="artifact" artifact-name="ejb:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="library" level="project" name="cdi-api-1.1-20130918" />
+        <element id="library" level="project" name="javax.inject-1" />
+        <element id="library" level="project" name="jersey-grizzly-1.12" />
+        <element id="library" level="project" name="JAX-RS-jersey-1.12" />
+        <element id="library" level="application" name="jersey-server-1.17.1 (2)" />
+        <element id="library" level="project" name="mysql-connector-java-5.1.26" />
+      </element>
+      <element id="directory" name="web.war">
+        <element id="artifact" artifact-name="web:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>

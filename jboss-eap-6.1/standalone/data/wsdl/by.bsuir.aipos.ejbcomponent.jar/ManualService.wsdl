@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="ManualService" targetNamespace="http://service/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service/" elementFormDefault="unqualified" targetNamespace="http://service/" version="1.0">
+<xs:element name="addConcept" type="tns:addConcept"/>
+<xs:element name="changeConcept" type="tns:changeConcept"/>
+<xs:element name="eraseConcept" type="tns:eraseConcept"/>
+<xs:element name="getAllConcepts" type="tns:getAllConcepts"/>
+<xs:element name="getAllConceptsResponse" type="tns:getAllConceptsResponse"/>
+<xs:element name="getConceptContent" type="tns:getConceptContent"/>
+<xs:element name="getConceptContentResponse" type="tns:getConceptContentResponse"/>
+<xs:element name="init" type="tns:init"/>
+<xs:complexType name="eraseConcept">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="addConcept">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="content" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="changeConcept">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+<xs:element minOccurs="0" name="content" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getConceptContent">
+<xs:sequence>
+<xs:element minOccurs="0" name="name" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getConceptContentResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="init">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getAllConcepts">
+<xs:sequence/>
+</xs:complexType>
+<xs:complexType name="getAllConceptsResponse">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="addConcept">
+    <wsdl:part element="tns:addConcept" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeConcept">
+    <wsdl:part element="tns:changeConcept" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConcepts">
+    <wsdl:part element="tns:getAllConcepts" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllConceptsResponse">
+    <wsdl:part element="tns:getAllConceptsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="init">
+    <wsdl:part element="tns:init" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptContent">
+    <wsdl:part element="tns:getConceptContent" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="eraseConcept">
+    <wsdl:part element="tns:eraseConcept" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getConceptContentResponse">
+    <wsdl:part element="tns:getConceptContentResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ManualService">
+    <wsdl:operation name="eraseConcept">
+      <wsdl:input message="tns:eraseConcept" name="eraseConcept">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="addConcept">
+      <wsdl:input message="tns:addConcept" name="addConcept">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="changeConcept">
+      <wsdl:input message="tns:changeConcept" name="changeConcept">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptContent">
+      <wsdl:input message="tns:getConceptContent" name="getConceptContent">
+    </wsdl:input>
+      <wsdl:output message="tns:getConceptContentResponse" name="getConceptContentResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="init">
+      <wsdl:input message="tns:init" name="init">
+    </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConcepts">
+      <wsdl:input message="tns:getAllConcepts" name="getAllConcepts">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllConceptsResponse" name="getAllConceptsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ManualServiceSoapBinding" type="tns:ManualService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addConcept">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addConcept">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="eraseConcept">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="eraseConcept">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="changeConcept">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="changeConcept">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="getConceptContent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getConceptContent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getConceptContentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllConcepts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllConcepts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllConceptsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="init">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="init">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ManualService">
+    <wsdl:port binding="tns:ManualServiceSoapBinding" name="ManualServicePort">
+      <soap:address location="http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

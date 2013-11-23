@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="jersey-grizzly-1.12">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web/lib/jersey-grizzly-1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jersey-multipart-1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jersey-core-1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jersey-client-1.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/lib/jersey-bundle-1.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

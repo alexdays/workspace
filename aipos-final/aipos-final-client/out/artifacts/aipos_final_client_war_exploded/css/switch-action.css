@@ -1,0 +1,11 @@
+.container {
+    width: auto;
+    max-width: 340px;
+}
+.container .credit {
+    margin: 20px 0;
+}
+
+.oauth-btn {
+    margin: 0 95px;
+}

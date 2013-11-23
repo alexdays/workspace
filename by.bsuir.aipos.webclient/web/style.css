@@ -1,0 +1,45 @@
+.general_menu {
+		font-family: Tahoma, Geneva, sans-serif;
+		font-size: 16px;
+		font-style: normal;
+		font-weight:bold;
+		float: left;
+		height: auto;
+		width: 150px;
+	}
+	.general_menu ul{
+		background-color:#E5E5E5;
+		padding:2px;
+		margin:2px;	
+		text-align:center;
+		border-radius:3px;
+	}
+	.general_menu ul:hover{
+		background-color:#66A6A8;
+		padding:2px;
+		margin:2px;	
+		text-align:center;
+		cursor:pointer;
+		border-radius:3px;
+	}
+	.general_menu ul a{
+		text-decoration:none;
+		color: #4E4E4E;
+	}
+	.concept_list {
+		font-family: Tahoma, Geneva, sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		float: left;
+		height: auto;
+	}
+	.concept_list ul{
+		padding:2px;
+		margin:2px;	
+		text-align:left;
+	}
+	.concept_list ul:hover{
+		background-color:lightgray;
+		padding:2px;
+		margin:2px;
+	}

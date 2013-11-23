@@ -1,0 +1,244 @@
+00:01:00,471 INFO  [org.jboss.modules] (main) JBoss Modules version 1.2.0.Final-redhat-1
+00:01:01,511 INFO  [org.jboss.msc] (main) JBoss MSC version 1.0.4.GA-redhat-1
+00:01:01,721 INFO  [org.jboss.as] (MSC service thread 1-6) JBAS015899: JBoss EAP 6.1.0.GA (AS 7.2.0.Final-redhat-8) starting
+00:01:01,741 DEBUG [org.jboss.as.config] (MSC service thread 1-6) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1251
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = G:\workspace\jboss-eap-6.1\jboss-modules.jar
+	java.class.version = 51.0
+	java.endorsed.dirs = C:\Program Files\Java\jdk1.7.0_17\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files\Java\jdk1.7.0_17\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+	java.home = C:\Program Files\Java\jdk1.7.0_17\jre
+	java.io.tmpdir = C:\Users\8523~1\AppData\Local\Temp\
+	java.library.path = C:\Program Files\Java\jdk1.7.0_17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Diskeeper Corporation\ExpressCache\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Autodesk\Backburner\;C:\Program Files\Common Files\Autodesk Shared\;C:\axis2-1.6.2\\bin;.
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.7.0_17-b02
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.7
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.7.0_17
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) 64-Bit Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.7
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 23.7-b01
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = G:\workspace\jboss-eap-6.1
+	jboss.host.name = alexsure
+	jboss.modules.dir = G:\workspace\jboss-eap-6.1\modules
+	jboss.node.name = alexsure
+	jboss.qualified.host.name = alexsure
+	jboss.server.base.dir = G:\workspace\jboss-eap-6.1\standalone
+	jboss.server.config.dir = G:\workspace\jboss-eap-6.1\standalone\configuration
+	jboss.server.data.dir = G:\workspace\jboss-eap-6.1\standalone\data
+	jboss.server.deploy.dir = G:\workspace\jboss-eap-6.1\standalone\data\content
+	jboss.server.log.dir = G:\workspace\jboss-eap-6.1\standalone\log
+	jboss.server.name = alexsure
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = G:\workspace\jboss-eap-6.1\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:G:\workspace\jboss-eap-6.1\standalone/configuration/logging.properties
+	module.path = G:\workspace\jboss-eap-6.1\modules
+	org.jboss.boot.log.file = G:\workspace\jboss-eap-6.1\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = amd64
+	os.name = Windows 8
+	os.version = 6.2
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 64
+	sun.boot.class.path = C:\Program Files\Java\jdk1.7.0_17\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_17\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_17\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.7.0_17\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_17\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_17\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_17\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_17\jre\classes
+	sun.boot.library.path = C:\Program Files\Java\jdk1.7.0_17\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = amd64
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = G:\workspace\jboss-eap-6.1\jboss-modules.jar -mp G:\workspace\jboss-eap-6.1\modules -jaxpmodule javax.xml.jaxp-provider org.jboss.as.standalone -Djboss.home.dir=G:\workspace\jboss-eap-6.1
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1251
+	sun.management.compiler = HotSpot 64-Bit Tiered Compilers
+	sun.os.patch.level = 
+	user.country = RU
+	user.dir = G:\workspace\jboss-eap-6.1\bin
+	user.home = C:\Users\Александр
+	user.language = ru
+	user.name = Александр
+	user.script = 
+	user.timezone = Europe/Kaliningrad
+	user.variant = 
+00:01:01,751 DEBUG [org.jboss.as.config] (MSC service thread 1-6) VM Arguments: -XX:+TieredCompilation -XX:+UseCompressedOops -Dprogram.name=standalone.bat -Xms128m -Xmx512m -XX:MaxPermSize=256m -Dorg.jboss.boot.log.file=G:\workspace\jboss-eap-6.1\standalone\log\server.log -Dlogging.configuration=file:G:\workspace\jboss-eap-6.1\standalone/configuration/logging.properties 
+00:01:08,371 INFO  [org.xnio] (MSC service thread 1-4) XNIO Version 3.0.7.GA-redhat-1
+00:01:08,391 INFO  [org.jboss.as.server] (Controller Boot Thread) JBAS015888: Creating http management service using socket-binding (management-http)
+00:01:08,491 INFO  [org.xnio.nio] (MSC service thread 1-4) XNIO NIO Implementation Version 3.0.7.GA-redhat-1
+00:01:08,531 INFO  [org.jboss.remoting] (MSC service thread 1-4) JBoss Remoting version 3.2.16.GA-redhat-1
+00:01:08,731 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 29) JBAS010280: Activating Infinispan subsystem.
+00:01:08,741 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 42) JBAS013171: Activating Security Subsystem
+00:01:08,781 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 37) JBAS011800: Activating Naming Subsystem
+00:01:08,831 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 46) JBAS015537: Activating WebServices Extension
+00:01:08,861 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 35) JBAS012605: Activated the following JSF Implementations: [main, 1.2]
+00:01:09,051 INFO  [org.jboss.as.security] (MSC service thread 1-4) JBAS013170: Current PicketBox version=4.0.17.Final-redhat-1
+00:01:09,531 INFO  [org.jboss.as.naming] (MSC service thread 1-6) JBAS011802: Starting Naming Service
+00:01:09,551 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-7) JBAS015400: Bound mail session [java:jboss/mail/Default]
+00:01:09,691 INFO  [org.jboss.as.connector.logging] (MSC service thread 1-8) JBAS010408: Starting JCA Subsystem (IronJacamar 1.0.17.Final-redhat-1)
+00:01:10,911 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 25) JBAS010403: Deploying JDBC-compliant driver class org.h2.Driver (version 1.3)
+00:01:14,982 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022052: Starting JBoss Web Services - Stack CXF Server 4.1.3.Final-redhat-3
+00:01:15,062 ERROR [org.apache.coyote.http11] (MSC service thread 1-4) JBWEB003043: Error initializing endpoint: java.net.BindException: Address already in use: JVM_Bind /127.0.0.1:8080
+	at org.apache.tomcat.util.net.JIoEndpoint.init(JIoEndpoint.java:973) [jbossweb-7.2.0.Final-redhat-1.jar:7.2.0.Final-redhat-1]
+	at org.apache.coyote.http11.Http11Protocol.init(Http11Protocol.java:174) [jbossweb-7.2.0.Final-redhat-1.jar:7.2.0.Final-redhat-1]
+	at org.apache.catalina.connector.Connector.init(Connector.java:982) [jbossweb-7.2.0.Final-redhat-1.jar:7.2.0.Final-redhat-1]
+	at org.jboss.as.web.WebConnectorService.start(WebConnectorService.java:273) [jboss-as-web-7.2.0.Final-redhat-8.jar:7.2.0.Final-redhat-8]
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1811) [jboss-msc-1.0.4.GA-redhat-1.jar:1.0.4.GA-redhat-1]
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1746) [jboss-msc-1.0.4.GA-redhat-1.jar:1.0.4.GA-redhat-1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [rt.jar:1.7.0_17]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [rt.jar:1.7.0_17]
+	at java.lang.Thread.run(Thread.java:722) [rt.jar:1.7.0_17]
+
+00:01:15,282 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-4) MSC000001: Failed to start service jboss.web.connector.http: org.jboss.msc.service.StartException in service jboss.web.connector.http: JBAS018007: Error starting web connector
+	at org.jboss.as.web.WebConnectorService.start(WebConnectorService.java:277)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:1811) [jboss-msc-1.0.4.GA-redhat-1.jar:1.0.4.GA-redhat-1]
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1746) [jboss-msc-1.0.4.GA-redhat-1.jar:1.0.4.GA-redhat-1]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [rt.jar:1.7.0_17]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [rt.jar:1.7.0_17]
+	at java.lang.Thread.run(Thread.java:722) [rt.jar:1.7.0_17]
+Caused by: LifecycleException:  JBWEB000023: Protocol handler initialization failed
+	at org.apache.catalina.connector.Connector.init(Connector.java:984)
+	at org.jboss.as.web.WebConnectorService.start(WebConnectorService.java:273)
+	... 5 more
+
+00:01:15,582 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) JBAS010400: Bound data source [java:jboss/datasources/ExampleDS]
+00:01:15,852 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) JBAS015012: Started FileSystemDeploymentService for directory G:\workspace\jboss-eap-6.1\standalone\deployments
+00:01:15,932 INFO  [org.jboss.as.remoting] (MSC service thread 1-8) JBAS017100: Listening on 127.0.0.1:4447
+00:01:15,932 INFO  [org.jboss.as.remoting] (MSC service thread 1-7) JBAS017100: Listening on 127.0.0.1:9999
+00:01:16,312 INFO  [org.jboss.as.controller] (Controller Boot Thread) JBAS014774: Service status report
+JBAS014777:   Services which failed to start:      service jboss.web.connector.http: org.jboss.msc.service.StartException in service jboss.web.connector.http: JBAS018007: Error starting web connector
+
+00:01:16,342 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015961: Http management interface listening on http://127.0.0.1:9990/management
+00:01:16,342 INFO  [org.jboss.as] (Controller Boot Thread) JBAS015951: Admin console listening on http://127.0.0.1:9990
+00:01:16,342 ERROR [org.jboss.as] (Controller Boot Thread) JBAS015875: JBoss EAP 6.1.0.GA (AS 7.2.0.Final-redhat-8) started (with errors) in 17531ms - Started 122 of 177 services (1 services failed or missing dependencies, 53 services are passive or on-demand)
+00:01:20,992 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015876: Starting deployment of "by.bsuir.aipos.ejbcomponent.jar" (runtime-name: "by.bsuir.aipos.ejbcomponent.jar")
+00:01:21,712 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-8) JNDI bindings for session bean named ManualService in deployment unit deployment "by.bsuir.aipos.ejbcomponent.jar" are as follows:
+
+
+00:01:21,712 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-8) JNDI bindings for session bean named OperationBean in deployment unit deployment "by.bsuir.aipos.ejbcomponent.jar" are as follows:
+
+	java:global/by.bsuir.aipos.ejbcomponent/OperationBean!operations.OperationBeanLocal
+	java:app/by.bsuir.aipos.ejbcomponent/OperationBean!operations.OperationBeanLocal
+	java:module/OperationBean!operations.OperationBeanLocal
+	java:global/by.bsuir.aipos.ejbcomponent/OperationBean
+	java:app/by.bsuir.aipos.ejbcomponent/OperationBean
+	java:module/OperationBean
+
+00:01:22,842 INFO  [org.jboss.ws.cxf.metadata] (MSC service thread 1-7) JBWS024061: Adding service endpoint metadata: id=ManualService
+ address=http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService
+ implementor=service.ManualService
+ serviceName={http://service/}ManualService
+ portName={http://service/}ManualServicePort
+ annotationWsdlLocation=null
+ wsdlLocationOverride=null
+ mtomEnabled=false
+00:01:24,302 INFO  [org.apache.cxf.service.factory.ReflectionServiceFactoryBean] (MSC service thread 1-7) Creating Service {http://service/}ManualService from class service.ManualService
+00:01:26,032 INFO  [org.apache.cxf.endpoint.ServerImpl] (MSC service thread 1-7) Setting the server's publish address to be http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService
+00:01:26,512 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-7) JBWS024074: WSDL published to: file:/G:/workspace/jboss-eap-6.1/standalone/data/wsdl/by.bsuir.aipos.ejbcomponent.jar/ManualService.wsdl
+00:01:26,522 INFO  [org.jboss.as.webservices] (MSC service thread 1-3) JBAS015539: Starting service jboss.ws.port-component-link
+00:01:26,622 INFO  [org.jboss.as.webservices] (MSC service thread 1-7) JBAS015539: Starting service jboss.ws.endpoint."by.bsuir.aipos.ejbcomponent.jar".ManualService
+00:01:26,652 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022050: Endpoint registered: jboss.ws:context=by.bsuir.aipos.ejbcomponent,endpoint=ManualService
+00:01:26,742 INFO  [org.jboss.web] (ServerService Thread Pool -- 6) JBAS018210: Register web context: /by.bsuir.aipos.ejbcomponent
+00:01:27,062 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "by.bsuir.aipos.ejbcomponent.jar" (runtime-name : "by.bsuir.aipos.ejbcomponent.jar")
+00:03:27,515 INFO  [org.jboss.as.webservices] (MSC service thread 1-2) JBAS015540: Stopping service jboss.ws.endpoint."by.bsuir.aipos.ejbcomponent.jar".ManualService
+00:03:27,515 INFO  [org.jboss.ws.common.management] (MSC service thread 1-2) JBWS022051: Endpoint unregistered: jboss.ws:context=by.bsuir.aipos.ejbcomponent,endpoint=ManualService
+00:03:27,515 INFO  [org.jboss.web] (ServerService Thread Pool -- 48) JBAS018224: Unregister web context: /by.bsuir.aipos.ejbcomponent
+00:03:27,555 INFO  [org.jboss.as.webservices] (MSC service thread 1-1) JBAS015540: Stopping service jboss.ws.port-component-link
+00:03:27,665 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015877: Stopped deployment by.bsuir.aipos.ejbcomponent.jar (runtime-name: by.bsuir.aipos.ejbcomponent.jar) in 161ms
+00:03:27,735 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018558: Undeployed "by.bsuir.aipos.ejbcomponent.jar" (runtime-name: "by.bsuir.aipos.ejbcomponent.jar")
+00:03:42,806 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) JBAS015876: Starting deployment of "by.bsuir.aipos.ejbcomponent.jar" (runtime-name: "by.bsuir.aipos.ejbcomponent.jar")
+00:03:42,846 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-4) JNDI bindings for session bean named ManualService in deployment unit deployment "by.bsuir.aipos.ejbcomponent.jar" are as follows:
+
+
+00:03:42,846 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-4) JNDI bindings for session bean named OperationBean in deployment unit deployment "by.bsuir.aipos.ejbcomponent.jar" are as follows:
+
+	java:global/by.bsuir.aipos.ejbcomponent/OperationBean!operations.OperationBeanLocal
+	java:app/by.bsuir.aipos.ejbcomponent/OperationBean!operations.OperationBeanLocal
+	java:module/OperationBean!operations.OperationBeanLocal
+	java:global/by.bsuir.aipos.ejbcomponent/OperationBean
+	java:app/by.bsuir.aipos.ejbcomponent/OperationBean
+	java:module/OperationBean
+
+00:03:42,916 INFO  [org.jboss.ws.cxf.metadata] (MSC service thread 1-1) JBWS024061: Adding service endpoint metadata: id=ManualService
+ address=http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService
+ implementor=service.ManualService
+ serviceName={http://service/}ManualService
+ portName={http://service/}ManualServicePort
+ annotationWsdlLocation=null
+ wsdlLocationOverride=null
+ mtomEnabled=false
+00:03:42,956 INFO  [org.apache.cxf.service.factory.ReflectionServiceFactoryBean] (MSC service thread 1-1) Creating Service {http://service/}ManualService from class service.ManualService
+00:03:43,136 INFO  [org.apache.cxf.endpoint.ServerImpl] (MSC service thread 1-1) Setting the server's publish address to be http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService
+00:03:43,206 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-1) JBWS024074: WSDL published to: file:/G:/workspace/jboss-eap-6.1/standalone/data/wsdl/by.bsuir.aipos.ejbcomponent.jar/ManualService.wsdl
+00:03:43,206 INFO  [org.jboss.as.webservices] (MSC service thread 1-6) JBAS015539: Starting service jboss.ws.port-component-link
+00:03:43,206 INFO  [org.jboss.as.webservices] (MSC service thread 1-6) JBAS015539: Starting service jboss.ws.endpoint."by.bsuir.aipos.ejbcomponent.jar".ManualService
+00:03:43,216 INFO  [org.jboss.ws.common.management] (MSC service thread 1-6) JBWS022050: Endpoint registered: jboss.ws:context=by.bsuir.aipos.ejbcomponent,endpoint=ManualService
+00:03:43,216 INFO  [org.jboss.web] (ServerService Thread Pool -- 48) JBAS018210: Register web context: /by.bsuir.aipos.ejbcomponent
+00:03:43,276 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) JBAS018559: Deployed "by.bsuir.aipos.ejbcomponent.jar" (runtime-name : "by.bsuir.aipos.ejbcomponent.jar")
+00:04:13,366 INFO  [org.jboss.as.webservices] (MSC service thread 1-2) JBAS015540: Stopping service jboss.ws.endpoint."by.bsuir.aipos.ejbcomponent.jar".ManualService
+00:04:13,366 INFO  [org.jboss.ws.common.management] (MSC service thread 1-2) JBWS022051: Endpoint unregistered: jboss.ws:context=by.bsuir.aipos.ejbcomponent,endpoint=ManualService
+00:04:13,366 INFO  [org.jboss.web] (ServerService Thread Pool -- 50) JBAS018224: Unregister web context: /by.bsuir.aipos.ejbcomponent
+00:04:13,386 INFO  [org.jboss.as.webservices] (MSC service thread 1-5) JBAS015540: Stopping service jboss.ws.port-component-link
+00:04:13,406 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015877: Stopped deployment by.bsuir.aipos.ejbcomponent.jar (runtime-name: by.bsuir.aipos.ejbcomponent.jar) in 45ms
+00:04:13,406 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) JBAS015876: Starting deployment of "by.bsuir.aipos.ejbcomponent.jar" (runtime-name: "by.bsuir.aipos.ejbcomponent.jar")
+00:04:13,446 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named ManualService in deployment unit deployment "by.bsuir.aipos.ejbcomponent.jar" are as follows:
+
+
+00:04:13,446 INFO  [org.jboss.as.ejb3.deployment.processors.EjbJndiBindingsDeploymentUnitProcessor] (MSC service thread 1-1) JNDI bindings for session bean named OperationBean in deployment unit deployment "by.bsuir.aipos.ejbcomponent.jar" are as follows:
+
+	java:global/by.bsuir.aipos.ejbcomponent/OperationBean!operations.OperationBeanLocal
+	java:app/by.bsuir.aipos.ejbcomponent/OperationBean!operations.OperationBeanLocal
+	java:module/OperationBean!operations.OperationBeanLocal
+	java:global/by.bsuir.aipos.ejbcomponent/OperationBean
+	java:app/by.bsuir.aipos.ejbcomponent/OperationBean
+	java:module/OperationBean
+
+00:04:13,516 INFO  [org.jboss.ws.cxf.metadata] (MSC service thread 1-1) JBWS024061: Adding service endpoint metadata: id=ManualService
+ address=http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService
+ implementor=service.ManualService
+ serviceName={http://service/}ManualService
+ portName={http://service/}ManualServicePort
+ annotationWsdlLocation=null
+ wsdlLocationOverride=null
+ mtomEnabled=false
+00:04:13,546 INFO  [org.apache.cxf.service.factory.ReflectionServiceFactoryBean] (MSC service thread 1-1) Creating Service {http://service/}ManualService from class service.ManualService
+00:04:13,686 INFO  [org.apache.cxf.endpoint.ServerImpl] (MSC service thread 1-1) Setting the server's publish address to be http://localhost:8080/by.bsuir.aipos.ejbcomponent/ManualService/ManualService
+00:04:13,746 INFO  [org.jboss.ws.cxf.deployment] (MSC service thread 1-1) JBWS024074: WSDL published to: file:/G:/workspace/jboss-eap-6.1/standalone/data/wsdl/by.bsuir.aipos.ejbcomponent.jar/ManualService.wsdl
+00:04:13,746 INFO  [org.jboss.as.webservices] (MSC service thread 1-5) JBAS015539: Starting service jboss.ws.port-component-link
+00:04:13,756 INFO  [org.jboss.as.webservices] (MSC service thread 1-8) JBAS015539: Starting service jboss.ws.endpoint."by.bsuir.aipos.ejbcomponent.jar".ManualService
+00:04:13,756 INFO  [org.jboss.ws.common.management] (MSC service thread 1-8) JBWS022050: Endpoint registered: jboss.ws:context=by.bsuir.aipos.ejbcomponent,endpoint=ManualService
+00:04:13,766 INFO  [org.jboss.web] (ServerService Thread Pool -- 50) JBAS018210: Register web context: /by.bsuir.aipos.ejbcomponent
+00:04:13,826 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 1) JBAS018565: Replaced deployment "by.bsuir.aipos.ejbcomponent.jar" with deployment "by.bsuir.aipos.ejbcomponent.jar"
+00:08:00,754 INFO  [org.jboss.as.webservices] (MSC service thread 1-8) JBAS015540: Stopping service jboss.ws.endpoint."by.bsuir.aipos.ejbcomponent.jar".ManualService
+00:08:00,754 INFO  [org.jboss.ws.common.management] (MSC service thread 1-8) JBWS022051: Endpoint unregistered: jboss.ws:context=by.bsuir.aipos.ejbcomponent,endpoint=ManualService
+00:08:00,754 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) JBAS010409: Unbound data source [java:jboss/datasources/ExampleDS]
+00:08:00,754 INFO  [org.jboss.as.webservices] (MSC service thread 1-2) JBAS015540: Stopping service jboss.ws.port-component-link
+00:08:00,774 INFO  [org.jboss.web] (ServerService Thread Pool -- 52) JBAS018224: Unregister web context: /by.bsuir.aipos.ejbcomponent
+00:08:00,784 INFO  [org.apache.catalina.core] (MSC service thread 1-4) JBWEB001079: Container org.apache.catalina.core.ContainerBase.[jboss.web].[default-host].[/] has not been started
+00:08:00,834 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) JBAS015877: Stopped deployment by.bsuir.aipos.ejbcomponent.jar (runtime-name: by.bsuir.aipos.ejbcomponent.jar) in 117ms
+00:08:00,894 INFO  [org.jboss.as] (MSC service thread 1-6) JBAS015950: JBoss EAP 6.1.0.GA (AS 7.2.0.Final-redhat-8) stopped in 175ms
